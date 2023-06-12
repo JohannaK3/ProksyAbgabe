@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
     //creates new instance of a meal with date attribute
 public class MensaMealWithDate implements Comparable<MensaMealWithDate> {
-    //TODO: Datum für Instanzen
 
     private LocalDate date;
     private MensaMeal meal;

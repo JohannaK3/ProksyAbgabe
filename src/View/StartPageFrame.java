@@ -2,30 +2,29 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.time.LocalDate;
 
 public class StartPageFrame extends JFrame  {//implements ActionListener
 
     private final int centerJLabel = SwingConstants.CENTER;
-    private final Insets basicInsets = new Insets(5, 5, 5, 5);
 
-    private Container backgroundContainer;
+    private final Container backgroundContainer;
     private Font menuFont;
     private Font headLineFont;
     private Font tableContentFont;
     private Font bottomFont;
 
 
-    private JPanel menuPanel;
-    private JPanel mealTablePanel;
-    private JPanel bottomPanel;
+    private final JPanel menuPanel;
+    private final JPanel mainDisplayPanel;
+    private final JPanel mealTablePanel;
+    private final JPanel bottomPanel;
 
     //private JComboBox<LocalDate> chooseDate;
     //private LocalDate[] chooseDateArray; //TODO: get future dates from Controller/Model
 
     private JButton showHistory;
     private JButton showNutrients;
+    private JButton placeHolder;
 
     private JLabel todaysMenu;
     private JLabel mealName;
@@ -42,7 +41,6 @@ public class StartPageFrame extends JFrame  {//implements ActionListener
         setExtendedState(MAXIMIZED_BOTH); //TODO: really the way to maximize to full screen?
         setResizable(true);
         setLocationRelativeTo(null);
-        //getContentPane().setBackground(Color.red);
     }
 
     private void setFont() {
@@ -53,9 +51,9 @@ public class StartPageFrame extends JFrame  {//implements ActionListener
         bottomFont = new Font("Arial", Font.PLAIN, 10);
     }
 
-    //private void setFontOf(Font font) {
-
-   // }
+    private void setFontOf(JComponent component, Font font) {
+        component.setFont(font);
+    }
 
     public StartPageFrame() {
 
@@ -66,43 +64,62 @@ public class StartPageFrame extends JFrame  {//implements ActionListener
         this.setFont();
         this.getContentPane().setBackground(new Color(0xf5efdc));
 
-        backgroundContainer.setLayout(new GridBagLayout());
+        backgroundContainer.setLayout(new BorderLayout(10, 0));
 
-        GridBagConstraints backgroundConstraints = new GridBagConstraints();
-        backgroundConstraints.insets = basicInsets;
 
-        menuPanel = new JPanel(new GridBagLayout());
-        GridBagConstraints menuPanelConstraints = new GridBagConstraints();
-        menuPanelConstraints.insets = basicInsets;
+        menuPanel = new JPanel(new GridLayout(0, 3));
+        setFontOf(menuPanel, menuFont);
 
-        mealTablePanel = new JPanel(new GridBagLayout());
-        GridBagConstraints meaLTablePanelConstraints = new GridBagConstraints();
-        meaLTablePanelConstraints.insets = basicInsets;
+        mainDisplayPanel = new JPanel(new BorderLayout());
+        setFontOf(mainDisplayPanel, tableContentFont);
 
-        bottomPanel = new JPanel(new GridBagLayout());
-        GridBagConstraints bottomPanelConstraints = new GridBagConstraints();
-        bottomPanelConstraints.insets = basicInsets;
+        mealTablePanel = new JPanel(new GridLayout(15, 3));
+        setFontOf(mealTablePanel, tableContentFont);
+
+        bottomPanel = new JPanel(new GridLayout(0, 2));
+        setFontOf(bottomPanel, bottomFont);
 
         //chooseDate = new JComboBox<>(chooseDateArray);
         showHistory = new JButton("Essenshistorie");
         showNutrients = new JButton("Kumulierte Nährwertangabe");
+        placeHolder = new JButton("Platzhalter");
 
         todaysMenu = new JLabel("Tagesmenu", centerJLabel);
-        mealName = new JLabel("Name", centerJLabel);
-        mealPrice = new JLabel("Preis", centerJLabel);
-        mealLine = new JLabel("Linie", centerJLabel);
+        setFontOf(todaysMenu, headLineFont);
+        mealName = new JLabel("Name");
+        mealPrice = new JLabel("Preis");
+        mealLine = new JLabel("Linie");
         lastUpdate = new JLabel("Letztes Update: ", SwingConstants.LEFT);
         dateAndTimeOfLastUpdate = new JLabel("", SwingConstants.RIGHT); //TODO: get last update from controller
         author = new JLabel("Autor: Johanna Krickow", centerJLabel);
 
-        //menuPanel.add(chooseDate, 1, 1);
+
+        backgroundContainer.add(menuPanel, BorderLayout.NORTH);
+        menuPanel.add(placeHolder);
         menuPanel.add(showHistory);
         menuPanel.add(showNutrients);
-        backgroundContainer.add(menuPanel);
 
-        mealTablePanel.add(todaysMenu);
+
+        backgroundContainer.add(mainDisplayPanel, BorderLayout.CENTER);
+
+        mainDisplayPanel.add(todaysMenu, BorderLayout.NORTH);
+        mainDisplayPanel.add(mealTablePanel, BorderLayout.CENTER);
+
+        //TODO: why displayed row after row not col after col
         mealTablePanel.add(mealName);
-        backgroundContainer.add(mealTablePanel);
+        mealTablePanel.add(mealPrice);
+        mealTablePanel.add(mealLine);
+
+
+
+
+
+
+
+
+        backgroundContainer.add(bottomPanel, BorderLayout.SOUTH);
+
+
 
     }
 }

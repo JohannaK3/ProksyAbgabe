@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Vieles in View instanziiert">
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="GridBagLayout begonnen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/StartPageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/StartPageFrame.java" afterDir="false" />
     </list>
@@ -79,7 +79,8 @@
       <updated>1686480809747</updated>
       <workItem from="1686480810825" duration="17655000" />
       <workItem from="1686579590157" duration="1489000" />
-      <workItem from="1686582539975" duration="17617000" />
+      <workItem from="1686582539975" duration="17672000" />
+      <workItem from="1686670869191" duration="7371000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1686481039398</created>
@@ -116,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686656624706</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="GridBagLayout begonnen">
+      <created>1686670854066</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686670854066</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +147,7 @@
     <MESSAGE value="Bei Datumänderung wird immer neue Instanz von Meals erstellt. MensaMealWithDate Klasse. Controller Konstruktor. Klassenstruktur von View." />
     <MESSAGE value="Irgendwas in View" />
     <MESSAGE value="Vieles in View instanziiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vieles in View instanziiert" />
+    <MESSAGE value="GridBagLayout begonnen" />
+    <option name="LAST_COMMIT_MESSAGE" value="GridBagLayout begonnen" />
   </component>
 </project>

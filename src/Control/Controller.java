@@ -15,6 +15,8 @@ public class Controller {
 
     private final MealHistory mealHistory;
 
+    //TODO: create Array of all dates to choose meals from
+
     public Controller() {
         this.selectedDate = DEFAULT_DATE;
         this.meals = new Meals(selectedDate);

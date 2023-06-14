@@ -1,8 +1,10 @@
 package Control;
 
-import Model.MealHistory;
+import Model.MealHistoryModel;
 import Model.Meals;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.time.LocalDate;
 
 public class Controller {
@@ -13,14 +15,22 @@ public class Controller {
 
     private final Meals meals;
 
-    private final MealHistory mealHistory;
+    private final MealHistoryModel mealHistory;
 
-    //TODO: create Array of all dates to choose meals from
+
 
     public Controller() {
         this.selectedDate = DEFAULT_DATE;
         this.meals = new Meals(selectedDate);
-        this.mealHistory = new MealHistory();
+        this.mealHistory = new MealHistoryModel();
+    }
+
+    public class SpinnerListener implements ChangeListener {
+
+        @Override
+        public void stateChanged(ChangeEvent event) {
+
+        }
     }
 
 }

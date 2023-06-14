@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="GridBagLayout begonnen">
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="GridBagLayout ersetzt durch verschachteltes Border und GridLayout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MealHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MealHistoryModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Meals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Meals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MealHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MealHistoryView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/StartPageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/StartPageFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +85,7 @@
       <workItem from="1686480810825" duration="17655000" />
       <workItem from="1686579590157" duration="1489000" />
       <workItem from="1686582539975" duration="17672000" />
-      <workItem from="1686670869191" duration="7371000" />
+      <workItem from="1686670869191" duration="25571000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1686481039398</created>
@@ -124,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686670854066</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="GridBagLayout ersetzt durch verschachteltes Border und GridLayout">
+      <created>1686678588286</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1686678588286</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +160,7 @@
     <MESSAGE value="Irgendwas in View" />
     <MESSAGE value="Vieles in View instanziiert" />
     <MESSAGE value="GridBagLayout begonnen" />
-    <option name="LAST_COMMIT_MESSAGE" value="GridBagLayout begonnen" />
+    <MESSAGE value="GridBagLayout ersetzt durch verschachteltes Border und GridLayout" />
+    <option name="LAST_COMMIT_MESSAGE" value="GridBagLayout ersetzt durch verschachteltes Border und GridLayout" />
   </component>
 </project>

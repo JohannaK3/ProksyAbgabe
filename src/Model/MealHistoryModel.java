@@ -1,16 +1,15 @@
 package Model;
 
-import Control.Controller;
 import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MealHistory {
+public class MealHistoryModel {
 
     private List<MensaMealWithDate> mealHistory;
 
-    public MealHistory() {
+    public MealHistoryModel() {
         this.mealHistory = new ArrayList<>();
     }
 

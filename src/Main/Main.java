@@ -1,8 +1,12 @@
 package Main;
+import Control.Controller;
+import Model.MealHistoryModel;
+import Model.Meals;
+import Model.MensaMealWithDate;
+import View.MealHistoryView;
+import View.MealOverview;
+import View.NutritientOverview;
 import View.StartPageFrame;
-import edu.kit.aifb.atks.mensascraper.lib.*;
-import java.util.List;
-import java.time.LocalDate;
 
 
 public class Main {
@@ -12,6 +16,20 @@ public class Main {
         //System.out.println(meals);
         //meals.forEach(System.out::println);
 
-        StartPageFrame  start = new StartPageFrame();
+        //TODO: wtf
+        StartPageFrame  startPageFrame = new StartPageFrame();
+        MealHistoryView mealHistory = new MealHistoryView();
+        MealOverview mealOverview = new MealOverview();
+        NutritientOverview nutritientOverview = new NutritientOverview();
+
+        Controller controller = new Controller();
+
+        MealHistoryModel mealHistoryModel = new MealHistoryModel();
+        Meals meals = new Meals();
+        MensaMealWithDate mensaMealWithDate = new MensaMealWithDate();
+
+
+        startPageFrame.setController(controller);
     }
+
 }

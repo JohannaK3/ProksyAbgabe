@@ -6,20 +6,26 @@ import java.time.LocalDate;
 
 public class Header {
 
+    private SelectDate selectDate;
+    private ShowHistory showHistory;
+    private ShowNutrients showNutrients;
     private final JPanel headerPanel;
 
     public Header() {
 
+        selectDate = new SelectDate();
+        showHistory = new ShowHistory();
+        showNutrients = new ShowNutrients();
+
         headerPanel = new JPanel(new GridLayout(0, 3, 30, 0));
 
-        headerPanel.add(SelectDate.createSelectedDatePanel());
-        headerPanel.add(ShowHistory.createShowHistoryPanel());
-        headerPanel.add(ShowNutrients.createShowNutrientsPanel());
+        headerPanel.add(selectDate.getSelectedDatePanel());
+        headerPanel.add(showHistory.getShowHistoryPanel());
+        headerPanel.add(showNutrients.getShowNutrientsPanel());
     }
 
-    public static JPanel createHeaderPanel() {
-        Header header = new Header();
-        return header.headerPanel;
+    public JPanel getHeaderPanel() {
+        return headerPanel;
     }
 
 

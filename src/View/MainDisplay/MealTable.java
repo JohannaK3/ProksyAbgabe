@@ -17,8 +17,8 @@ public class MealTable {
         dateOverviewPanel = new JPanel(new GridLayout(0, 2));
         mealTablePanel = new JPanel(new GridLayout(0, 3, 30, 10));
 
-        todaysMenuLabel = new JLabel("Tagesmenu, vom: " , SwingConstants.CENTER);
-        selectedDateLabel = new JLabel("Hier muss noch das Selected Date hin", SwingConstants.CENTER);
+        todaysMenuLabel = new JLabel("Tagesmenu, vom: " , SwingConstants.RIGHT);
+        selectedDateLabel = new JLabel("Hier muss noch das Selected Date hin", SwingConstants.LEFT);
         mealNameLabel = new JLabel("Name", SwingConstants.CENTER);
         mealPriceLabel = new JLabel("Preis", SwingConstants.CENTER);
         mealLineLabel = new JLabel("Linie", SwingConstants.CENTER);
@@ -35,8 +35,7 @@ public class MealTable {
         mealLineLabel.setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
-    public static JPanel createMealTablePanel() {
-        MealTable mealTable = new MealTable();
-        return mealTable.mealTableBackgroundPanel;
+    public JPanel getMealTablePanel() {
+        return mealTableBackgroundPanel;
     }
 }

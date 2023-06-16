@@ -16,7 +16,7 @@ public class Footer {
         lastUpdatePanel = new JPanel(new GridLayout(0, 2));
 
         lastUpdateLabel = new JLabel("Letztes Update: ", SwingConstants.RIGHT);
-        placeHolder2 = new JLabel("Platzhalter2", SwingConstants.CENTER);
+        placeHolder2 = new JLabel("Platzhalter2", SwingConstants.LEFT);
         dateAndTimeOfLastUpdateLabel = new JLabel("", SwingConstants.RIGHT); //TODO: get last update from controller
         authorLabel = new JLabel("Autor: Johanna Krickow", SwingConstants.CENTER);
 
@@ -26,8 +26,7 @@ public class Footer {
         footerPanel.add(authorLabel);
     }
 
-    public static JPanel createFooterPanel() {
-        Footer footer = new Footer();
-        return footer.footerPanel;
+    public  JPanel getFooterPanel() {
+        return footerPanel;
     }
 }

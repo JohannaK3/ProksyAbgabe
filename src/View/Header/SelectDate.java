@@ -46,8 +46,7 @@ public class SelectDate {
         dateSpinnerPanel.add(getMenuForSelectedDayButton);
     }
 
-    public static JPanel createSelectedDatePanel() {
-        SelectDate selectDate = new SelectDate();
-        return selectDate.dateSpinnerPanel;
+    public JPanel getSelectedDatePanel() {
+        return dateSpinnerPanel;
     }
 }

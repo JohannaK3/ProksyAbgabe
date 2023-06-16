@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="ganz großes chaos">
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="yay heute fusilli">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Footer/Footer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Footer/Footer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Header/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/Header.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Header/SelectDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/SelectDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Header/ShowHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/ShowHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Header/ShowNutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/ShowNutrients.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MainDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MainDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealOverview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +103,7 @@
       <workItem from="1686670869191" duration="31008000" />
       <workItem from="1686828445336" duration="3735000" />
       <workItem from="1686906592343" duration="20000" />
-      <workItem from="1686919334900" duration="6974000" />
+      <workItem from="1686919334900" duration="10033000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1686481039398</created>
@@ -164,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686763717393</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="yay heute fusilli">
+      <created>1686926770019</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686926770019</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +206,7 @@
     <MESSAGE value="GridBagLayout begonnen" />
     <MESSAGE value="GridBagLayout ersetzt durch verschachteltes Border und GridLayout" />
     <MESSAGE value="ganz großes chaos" />
-    <option name="LAST_COMMIT_MESSAGE" value="ganz großes chaos" />
+    <MESSAGE value="yay heute fusilli" />
+    <option name="LAST_COMMIT_MESSAGE" value="yay heute fusilli" />
   </component>
 </project>

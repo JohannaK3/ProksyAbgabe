@@ -11,13 +11,17 @@ import java.awt.*;
 public class MainView extends JFrame  {
 
     private Controller controller;
+    private Header header;
+    private MainDisplay mainDisplay;
+    private Footer footer;
 
-    private final Container backgroundContainer;
+    private final Container contentPainContainer;
 
     //TODO: handle fonts
 
     private final JPanel backgroundPanel;
     private final JPanel backgroundBorderPanel;
+
 
 
     private void initialize() {
@@ -31,33 +35,32 @@ public class MainView extends JFrame  {
     public void setController(Controller controller) {
         this.controller = controller;
 
+
     }
-
-
-
 
     public MainView() {
 
-        backgroundContainer = getContentPane();
+        contentPainContainer = getContentPane();
 
         backgroundPanel = new JPanel(new BorderLayout());
-        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(10, 10 , 10 ,10));
-        backgroundContainer.add(backgroundPanel);
-
         backgroundBorderPanel = new JPanel(new BorderLayout(50, 10));
-        backgroundPanel.add(backgroundBorderPanel, BorderLayout.CENTER);
+        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(10, 10 , 10 ,10));
 
+        contentPainContainer.add(backgroundPanel);
+        backgroundPanel.add(backgroundBorderPanel, BorderLayout.CENTER);
 
         //general settings
         this.setTitle("MENSA FOOD TRACKER");
         this.initialize();
         this.getContentPane().setBackground(new Color(0xeff5dc));
 
+        this.header = new Header();
+        this.mainDisplay = new MainDisplay();
+        this.footer = new Footer();
 
-        backgroundBorderPanel.add(Header.createHeaderPanel(), BorderLayout.NORTH);
-        backgroundBorderPanel.add(MainDisplay.createMainDisplayPanel(), BorderLayout.CENTER);
-        backgroundBorderPanel.add(Footer.createFooterPanel(), BorderLayout.SOUTH);
-
+        backgroundBorderPanel.add(header.getHeaderPanel(), BorderLayout.NORTH);
+        backgroundBorderPanel.add(mainDisplay.getMainDisplayPanel(), BorderLayout.CENTER);
+        backgroundBorderPanel.add(footer.getFooterPanel(), BorderLayout.SOUTH);
 
         pack();
     }

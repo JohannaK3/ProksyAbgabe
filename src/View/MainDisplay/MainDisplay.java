@@ -7,17 +7,20 @@ import java.awt.*;
 
 public class MainDisplay {
 
+    private MealTable mealTable;
+
     private final JPanel mainDisplayPanel;
 
     public MainDisplay() {
 
+        mealTable = new MealTable();
+
         mainDisplayPanel = new JPanel(new BorderLayout(50, 10));
 
-        mainDisplayPanel.add(MealTable.createMealTablePanel());
+        mainDisplayPanel.add(mealTable.getMealTablePanel());
     }
 
-    public static JPanel createMainDisplayPanel() {
-        MainDisplay mainDisplay = new MainDisplay();
-        return mainDisplay.mainDisplayPanel;
+    public JPanel getMainDisplayPanel() {
+        return mainDisplayPanel;
     }
 }

@@ -11,14 +11,13 @@ public class ShowHistory {
 
 
     public ShowHistory() {
-
         showHistoryPanel = new JPanel(new GridLayout(1, 1));
-
         showHistoryButton = new JButton("Essenshistorie");
+
+        showHistoryPanel.add(showHistoryButton);
     }
 
-    public static JPanel createShowHistoryPanel() {
-        ShowHistory showHistory = new ShowHistory();
-        return showHistory.showHistoryPanel;
+    public JPanel getShowHistoryPanel() {
+        return showHistoryPanel;
     }
 }

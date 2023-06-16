@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="GridBagLayout ersetzt durch verschachteltes Border und GridLayout">
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="ganz großes chaos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MealHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MealHistoryModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Meals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Meals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MealHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MealHistoryView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/StartPageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/StartPageFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +71,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UmrechnerMain" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.kit.aifb.proksy.umrechner.main.UmrechnerMain" />
+      <module name="Krickow_Johanna_ugtfp_Abgabe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.kit.aifb.proksy.umrechner.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,7 +96,8 @@
       <workItem from="1686480810825" duration="17655000" />
       <workItem from="1686579590157" duration="1489000" />
       <workItem from="1686582539975" duration="17672000" />
-      <workItem from="1686670869191" duration="25571000" />
+      <workItem from="1686670869191" duration="31008000" />
+      <workItem from="1686828445336" duration="3735000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1686481039398</created>
@@ -136,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686678588286</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ganz großes chaos">
+      <created>1686763717393</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686763717393</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +180,7 @@
     <MESSAGE value="Vieles in View instanziiert" />
     <MESSAGE value="GridBagLayout begonnen" />
     <MESSAGE value="GridBagLayout ersetzt durch verschachteltes Border und GridLayout" />
-    <option name="LAST_COMMIT_MESSAGE" value="GridBagLayout ersetzt durch verschachteltes Border und GridLayout" />
+    <MESSAGE value="ganz großes chaos" />
+    <option name="LAST_COMMIT_MESSAGE" value="ganz großes chaos" />
   </component>
 </project>

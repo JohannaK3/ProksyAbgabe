@@ -1,6 +1,7 @@
 package View;
 
 import Control.Controller;
+import Model.Meals;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 
 public class StartPageFrame extends JFrame  {//implements ActionListener
 
+    //access to other classes
     private Controller controller;
 
     private final int centerJLabel = SwingConstants.CENTER;
@@ -49,9 +51,6 @@ public class StartPageFrame extends JFrame  {//implements ActionListener
     private JButton removeButton;
 
     private JSpinner dateSpinner;
-    public JSpinner getDateSpinner() {
-        return dateSpinner;
-    }
 
     private JLabel emptyLabel;
     private JLabel selectDateInSpinnerLabel;
@@ -90,9 +89,13 @@ public class StartPageFrame extends JFrame  {//implements ActionListener
         component.setBackground(color);
     }
 
+    public JSpinner getDateSpinner() {
+
+        return dateSpinner;
+    }
 
     //TODO: wohin
-    public void setController(Controller controller) {
+    /*public void setController(Controller controller) {
         this.controller = controller;
         dateSpinner.addChangeListener(new ChangeListener());
         {
@@ -105,13 +108,12 @@ public class StartPageFrame extends JFrame  {//implements ActionListener
             }
         });
     }
+     */
 
 
 
 
     public StartPageFrame() {
-
-
 
         backgroundContainer = getContentPane();
 
@@ -160,7 +162,6 @@ public class StartPageFrame extends JFrame  {//implements ActionListener
         setFontOf(showNutrientsButton, menuFont);
 
         //creating JSpinner for date selection
-
         dateSpinnerModel = new SpinnerDateModel(Date.from(currentLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 null, null, Calendar.DAY_OF_MONTH);
         dateSpinner = new JSpinner(dateSpinnerModel);

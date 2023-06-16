@@ -12,22 +12,32 @@ import javax.swing.event.ChangeListener;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.List;
 
     // start page, instance is created, when program starts
 public class Meals {
 
+
+
+
     private final KITMensaScraper mensa = new KITMensaScraper();
     private List<MensaMeal> currentMeals;
 
+
     public Meals(LocalDate selectedDate) {
+
         this.currentMeals = this.getMeals(selectedDate);
+
+
     }
 
     //method gets meals for any future day from library
     private List<MensaMeal> getMeals(LocalDate selectedDate) {
         return mensa.fetchMeals(MensaLocation.ADENAUERRING, selectedDate);
     }
+
+
 
 
     //TODO: müssen die methoden hier rein??
@@ -40,7 +50,7 @@ public class Meals {
         return convertToLocalDate(selectedDate);
     }
 
-
+    /*
     //TODO: hilfe
     getDateSpinner().addChangeListener(new ChangeListener() {
         @Override
@@ -51,4 +61,6 @@ public class Meals {
         }
         );
 
+
+    */
 }

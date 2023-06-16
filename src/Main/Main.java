@@ -25,11 +25,11 @@ public class Main {
         Controller controller = new Controller();
 
         MealHistoryModel mealHistoryModel = new MealHistoryModel();
-        Meals meals = new Meals();
-        MensaMealWithDate mensaMealWithDate = new MensaMealWithDate();
+        //Meals meals = new Meals();
+        //MensaMealWithDate mensaMealWithDate = new MensaMealWithDate();
 
 
-        startPageFrame.setController(controller);
+        //startPageFrame.setController(controller);
     }
 
 }

@@ -19,4 +19,8 @@ public class ShowNutrients {
     public JPanel getShowNutrientsPanel() {
         return showNutrientsPanel;
     }
+
+    public JButton getShowNutrientsButton() {
+        return showNutrientsButton;
+    }
 }

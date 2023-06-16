@@ -19,6 +19,8 @@ public class MealTable {
 
         todaysMenuLabel = new JLabel("Tagesmenu, vom: " , SwingConstants.RIGHT);
         selectedDateLabel = new JLabel("Hier muss noch das Selected Date hin", SwingConstants.LEFT);
+        //TODO: new GridLayout with two Lines, one with name/price/line and second one with new grid for meals
+        //TODO: change GridLayout for meals to JScrollPane or something else
         mealNameLabel = new JLabel("Name", SwingConstants.CENTER);
         mealPriceLabel = new JLabel("Preis", SwingConstants.CENTER);
         mealLineLabel = new JLabel("Linie", SwingConstants.CENTER);
@@ -36,6 +38,6 @@ public class MealTable {
     }
 
     public JPanel getMealTablePanel() {
-        return mealTableBackgroundPanel;
+        return mealTablePanel;
     }
 }

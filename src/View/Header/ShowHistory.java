@@ -20,4 +20,8 @@ public class ShowHistory {
     public JPanel getShowHistoryPanel() {
         return showHistoryPanel;
     }
+
+    public JButton getShowHistoryButton() {
+        return showHistoryButton;
+    }
 }

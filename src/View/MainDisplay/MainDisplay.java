@@ -1,7 +1,6 @@
 package View.MainDisplay;
 
 import View.MealTable;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -22,5 +21,9 @@ public class MainDisplay {
 
     public JPanel getMainDisplayPanel() {
         return mainDisplayPanel;
+    }
+
+    public MealTable getMealTable() {
+        return mealTable;
     }
 }

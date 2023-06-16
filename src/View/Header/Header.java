@@ -19,13 +19,25 @@ public class Header {
 
         headerPanel = new JPanel(new GridLayout(0, 3, 30, 0));
 
-        headerPanel.add(selectDate.getSelectedDatePanel());
+        headerPanel.add(selectDate.getDateSpinnerPanel());
         headerPanel.add(showHistory.getShowHistoryPanel());
         headerPanel.add(showNutrients.getShowNutrientsPanel());
     }
 
     public JPanel getHeaderPanel() {
         return headerPanel;
+    }
+
+    public SelectDate getSelectDate() {
+        return selectDate;
+    }
+
+    public ShowHistory getShowHistory() {
+        return showHistory;
+    }
+
+    public ShowNutrients getShowNutrients() {
+        return showNutrients;
     }
 
 

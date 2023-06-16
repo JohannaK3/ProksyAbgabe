@@ -4,7 +4,6 @@ import Control.Controller;
 import View.Footer.Footer;
 import View.Header.Header;
 import View.MainDisplay.MainDisplay;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -34,7 +33,9 @@ public class MainView extends JFrame  {
 
     public void setController(Controller controller) {
         this.controller = controller;
-
+        this.header.getSelectDate().getGetMenuForSelectedDayButton().addActionListener(controller.createSelectedDayButtonActionListener());
+        this.header.getShowHistory().getShowHistoryButton().addActionListener(controller.createShowHistoryButtonActionListener());
+        this.header.getShowNutrients().getShowNutrientsButton().addActionListener(controller.createShowNutrientsButtonActionListener());
 
     }
 
@@ -63,5 +64,17 @@ public class MainView extends JFrame  {
         backgroundBorderPanel.add(footer.getFooterPanel(), BorderLayout.SOUTH);
 
         pack();
+    }
+
+    public Header getHeader() {
+        return header;
+    }
+
+    public MainDisplay getMainDisplay() {
+        return mainDisplay;
+    }
+
+    public Footer getFooter() {
+        return footer;
     }
 }

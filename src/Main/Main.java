@@ -10,6 +10,7 @@ public class Main {
         MainView view = new MainView();
         Controller controller = new Controller();
 
+
         view.setController(controller);
         controller.setView(view);
 

@@ -10,6 +10,7 @@ public class MainDisplay {
 
     private final JPanel mainDisplayPanel;
 
+
     public MainDisplay() {
 
         mealTable = new MealTable();

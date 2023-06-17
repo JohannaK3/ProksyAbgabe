@@ -1,17 +1,10 @@
 package Control;
 
-import Model.MealHistoryModel;
 import Model.Meals;
-import View.Header.ShowHistory;
+import Model.MensaMealWithDate;
 import View.MainView;
-
-import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 
 public class Controller {
@@ -49,11 +42,15 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
-            System.out.println("i run");
+            //shows selected date above table
             String date = view.getHeader().getSelectDate().getDateInStringFormat();
-            System.out.println(date);
             view.getMainDisplay().getMealTable().getSelectedDateLabel().setText(date);
+
+
+            //shows meal table for selected date
+            LocalDate selectedDate = view.getHeader().getSelectDate().getSelectedDateFromSpinner();
+            Meals meals = view.getMainDisplay().getMealTable().getMeals();
+            meals.updateCurrentMeals(selectedDate);
         }
     }
 

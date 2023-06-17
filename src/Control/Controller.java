@@ -10,6 +10,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 
@@ -48,10 +49,11 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
             System.out.println("i run");
-            JLabel test = new JLabel("Test");
-            view.getMainDisplay().getMealTable().getMealTablePanel().add(test);
-            //TODO: why doesnt add work multiple times if i push button multiple times
+            String date = view.getHeader().getSelectDate().getDateInStringFormat();
+            System.out.println(date);
+            view.getMainDisplay().getMealTable().getSelectedDateLabel().setText(date);
         }
     }
 

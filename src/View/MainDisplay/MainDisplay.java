@@ -16,7 +16,7 @@ public class MainDisplay {
 
         mainDisplayPanel = new JPanel(new BorderLayout(50, 10));
 
-        mainDisplayPanel.add(mealTable.getMealTablePanel());
+        mainDisplayPanel.add(mealTable.getMealTableBackgroundPanel());
     }
 
     public JPanel getMainDisplayPanel() {

@@ -2,7 +2,8 @@ package View.Header;
 
 import javax.swing.*;;
 import java.awt.*;
-import java.sql.Date;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Calendar;
@@ -52,5 +53,16 @@ public class SelectDate {
 
     public JButton getGetMenuForSelectedDayButton() {
         return getMenuForSelectedDayButton;
+    }
+
+    public LocalDate getSelectedDateFromSpinner() {
+        Date date = (Date) dateSpinner.getValue();
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public String getDateInStringFormat() {
+        LocalDate localDate = getSelectedDateFromSpinner();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return localDate.format(formatter);
     }
 }

@@ -2,7 +2,6 @@ package View.Header;
 
 import javax.swing.*;
 import java.awt.*;
-import java.time.LocalDate;
 
 public class Header {
 

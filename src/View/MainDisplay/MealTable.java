@@ -2,8 +2,13 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class MealTable {
+
+    private LocalDate currentLocalDate = LocalDate.now();
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     private final JPanel mealTableBackgroundPanel, mealTablePanel, dateOverviewPanel;
 
@@ -18,7 +23,7 @@ public class MealTable {
         mealTablePanel = new JPanel(new GridLayout(0, 3, 30, 10));
 
         todaysMenuLabel = new JLabel("Tagesmenu, vom: " , SwingConstants.RIGHT);
-        selectedDateLabel = new JLabel("Hier muss noch das Selected Date hin", SwingConstants.LEFT);
+        selectedDateLabel = new JLabel(currentLocalDate.format(formatter), SwingConstants.LEFT);
         //TODO: new GridLayout with two Lines, one with name/price/line and second one with new grid for meals
         //TODO: change GridLayout for meals to JScrollPane or something else
         mealNameLabel = new JLabel("Name", SwingConstants.CENTER);
@@ -28,13 +33,22 @@ public class MealTable {
         mealTableBackgroundPanel.add(dateOverviewPanel, BorderLayout.NORTH);
         dateOverviewPanel.add(todaysMenuLabel);
         dateOverviewPanel.add(selectedDateLabel);
+
         mealTableBackgroundPanel.add(mealTablePanel, BorderLayout.CENTER);
         mealTablePanel.add(mealNameLabel);
-        mealNameLabel.setBorder(BorderFactory.createLineBorder(Color.black));
         mealTablePanel.add(mealPriceLabel);
-        mealPriceLabel.setBorder(BorderFactory.createLineBorder(Color.black));
         mealTablePanel.add(mealLineLabel);
+        mealPriceLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+        mealNameLabel.setBorder(BorderFactory.createLineBorder(Color.black));
         mealLineLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+    }
+
+    public JPanel getMealTableBackgroundPanel() {
+        return mealTableBackgroundPanel;
+    }
+
+    public JLabel getSelectedDateLabel() {
+        return selectedDateLabel;
     }
 
     public JPanel getMealTablePanel() {

@@ -2,6 +2,7 @@ package View;
 
 import Model.Meals;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -20,6 +21,7 @@ public class MealTable {
 
     //TODO: create Table Model -> possibly Meals modeln in different class
     private final JTable mealsJTable;
+    private final DefaultTableModel defaultTableModel;
 
     private final JLabel todaysMenuLabel, selectedDateLabel;
     private final String[][] dataArray;
@@ -39,7 +41,8 @@ public class MealTable {
 
         mealTableBackgroundPanel = new JPanel(new BorderLayout());
         dateOverviewPanel = new JPanel(new GridLayout(0, 2));
-        mealsJTable = new JTable(dataArray, columnsArray);
+        defaultTableModel = new DefaultTableModel(dataArray, columnsArray);
+        mealsJTable = new JTable(defaultTableModel);
 
         todaysMenuLabel = new JLabel("Tagesmenu, vom: " , SwingConstants.RIGHT);
         selectedDateLabel = new JLabel(currentLocalDate.format(formatter), SwingConstants.LEFT);

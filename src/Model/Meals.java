@@ -18,7 +18,6 @@ public class Meals {
     public Meals(LocalDate selectedDate) {
 
         this.currentMeals = this.getMeals(selectedDate);
-
     }
 
     //method gets meals for any future day from library

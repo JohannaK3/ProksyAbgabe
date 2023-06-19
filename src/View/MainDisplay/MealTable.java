@@ -24,20 +24,16 @@ public class MealTable {
     private final DefaultTableModel defaultTableModel;
 
     private final JLabel todaysMenuLabel, selectedDateLabel;
-    private final String[][] dataArray;
+    private String[][] dataArray;
 
     //TODO: create add & remove button to add/remove meals to/from history
 
     public MealTable() {
         String[] columnsArray = {"Name", "Preis", "Linie"};
         //TODO: change date
-        meals = new Meals(LocalDate.of(2023, 06, 19));
+        meals = new Meals(currentLocalDate);
 
-        dataArray = new String[meals.getCurrentMeals().size()][3];
-
-        for(int i = 0; i < meals.getCurrentMeals().size(); i++) {
-            dataArray[i] = meals.getCurrentMeals().get(i).getMealInfo();
-        }
+        this.updateDataArray();
 
         mealTableBackgroundPanel = new JPanel(new BorderLayout());
         dateOverviewPanel = new JPanel(new GridLayout(0, 2));
@@ -58,6 +54,14 @@ public class MealTable {
         mealTableBackgroundPanel.add(scrollBarPane, BorderLayout.CENTER);
     }
 
+    public void updateDataArray() {
+        dataArray = new String[meals.getCurrentMeals().size()][3];
+
+        for(int i = 0; i < meals.getCurrentMeals().size(); i++) {
+            dataArray[i] = meals.getCurrentMeals().get(i).getMealInfo();
+        }
+    }
+
     public JPanel getMealTableBackgroundPanel() {
         return mealTableBackgroundPanel;
     }
@@ -68,5 +72,17 @@ public class MealTable {
 
     public Meals getMeals() {
         return meals;
+    }
+
+    public JTable getMealsJTable() {
+        return mealsJTable;
+    }
+
+    public String[][] getDataArray() {
+        return dataArray.clone();
+    }
+
+    public DefaultTableModel getDefaultTableModel() {
+        return defaultTableModel;
     }
 }

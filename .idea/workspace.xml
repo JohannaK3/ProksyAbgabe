@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Meal Abfrage in Tabelle funktioniert für einen Tag. Updaten muss noch gemacht werden.">
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Table Model hinzugefügt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Meals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Meals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Header/SelectDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/SelectDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +100,7 @@
       <workItem from="1686670869191" duration="31008000" />
       <workItem from="1686828445336" duration="3735000" />
       <workItem from="1686906592343" duration="20000" />
-      <workItem from="1686919334900" duration="33810000" />
+      <workItem from="1686919334900" duration="43787000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1686481039398</created>
@@ -190,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687013525304</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Table Model hinzugefügt">
+      <created>1687107800186</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1687107800186</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +243,14 @@
     <MESSAGE value="Erste ButtonListener erstellt. Funktionieren" />
     <MESSAGE value="showSelectedDateButton funktioniert" />
     <MESSAGE value="Meal Abfrage in Tabelle funktioniert für einen Tag. Updaten muss noch gemacht werden." />
-    <option name="LAST_COMMIT_MESSAGE" value="Meal Abfrage in Tabelle funktioniert für einen Tag. Updaten muss noch gemacht werden." />
+    <MESSAGE value="Table Model hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Table Model hinzugefügt" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="view.getMainDisplay().getMealTable().getMeals().currentMeals" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

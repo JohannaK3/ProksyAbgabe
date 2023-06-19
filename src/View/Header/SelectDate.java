@@ -16,12 +16,12 @@ public class SelectDate {
     private final JPanel dateSpinnerPanel;
 
     private final JLabel selectDateInSpinnerLabel;
-    private final JSpinner dateSpinner;
+    private JSpinner dateSpinner;
     private JLabel emptyLabel;
     private final JButton getMenuForSelectedDayButton;
 
     private SpinnerDateModel dateSpinnerModel;
-    private final JSpinner.DateEditor dateSpinnerEditor;
+    private JSpinner.DateEditor dateSpinnerEditor;
 
 
 
@@ -30,12 +30,8 @@ public class SelectDate {
         dateSpinnerPanel = new JPanel(new GridLayout(2, 1));
 
         selectDateInSpinnerLabel = new JLabel("Datum wählen: ", SwingConstants.CENTER);
-        dateSpinnerModel = new SpinnerDateModel(Date.from(currentLocalDate.atStartOfDay(
-                ZoneId.systemDefault()).toInstant()), null, null, Calendar.DAY_OF_MONTH);
-        dateSpinner = new JSpinner(dateSpinnerModel);
-        dateSpinnerEditor = new JSpinner.DateEditor(dateSpinner, "dd.MM.yyyy");
-        dateSpinner.setEditor(dateSpinnerEditor);
-        dateSpinnerModel.setEnd(Date.from(spinnerEndDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+
+        createWholeDateSpinner();
 
         emptyLabel = new JLabel("");
         getMenuForSelectedDayButton = new JButton("Menu anzeigen");
@@ -45,6 +41,16 @@ public class SelectDate {
         dateSpinnerPanel.add(dateSpinner);
         dateSpinnerPanel.add(emptyLabel);
         dateSpinnerPanel.add(getMenuForSelectedDayButton);
+    }
+
+    private void createWholeDateSpinner() {
+        dateSpinnerModel = new SpinnerDateModel(Date.from(currentLocalDate.atStartOfDay(
+                ZoneId.systemDefault()).toInstant()), null, null, Calendar.DAY_OF_MONTH);
+        dateSpinner = new JSpinner(dateSpinnerModel);
+        dateSpinnerEditor = new JSpinner.DateEditor(dateSpinner, "dd.MM.yyyy");
+        dateSpinner.setEditor(dateSpinnerEditor);
+        dateSpinnerModel.setEnd(Date.from(spinnerEndDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        dateSpinnerModel.setStart(Date.from(currentLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
     }
 
     public JPanel getDateSpinnerPanel() {

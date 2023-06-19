@@ -41,6 +41,10 @@ public class MainDisplay {
         return mealTable;
     }
 
+    public MealHistoryView getMealHistoryView() {
+        return mealHistoryView;
+    }
+
     public CardLayout getCardLayout() {
         return cardLayout;
     }

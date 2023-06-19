@@ -1,6 +1,7 @@
 package View;
 
 import Model.Meals;
+import Model.MensaMealWithDate;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -20,7 +21,6 @@ public class MealHistoryView {
     private final JTable historyTable;
     private final DefaultTableModel defaultTableModel;
 
-    private String[][] extendedDataArray;
     private final int initialRowNum;
 
     public MealHistoryView() {
@@ -32,7 +32,7 @@ public class MealHistoryView {
         historyHeaderLabel = new JLabel("Essenshistorie (zum Entfernen: Doppelklick auf das Gericht)");
         historyHeaderPanel.add(historyHeaderLabel);
 
-        String[] columnsArray = {"Name", "Datum", "Preis", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
+        String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
                                     "Fett (in g)"};
         initialRowNum = 0;
         defaultTableModel = new DefaultTableModel(initialRowNum, columnsArray.length) {
@@ -56,8 +56,18 @@ public class MealHistoryView {
         return historyBackgroundPanel;
     }
 
-    public void updateExtendedDateArray() {
-        extendedDataArray = new String[meals.getCurrentMeals().size()][3];
+    public void updateHistoryTable(MensaMealWithDate meal) {
+        defaultTableModel.addRow(meal.getExtendedMealInfo());
     }
+
+    //TODO: find cause for exception when deleting certain meals
+    public void removeRowFromHistory(int rowIndex) {
+        defaultTableModel.removeRow(rowIndex);
+    }
+
+    public JTable getHistoryTable() {
+        return historyTable;
+    }
+
 
 }

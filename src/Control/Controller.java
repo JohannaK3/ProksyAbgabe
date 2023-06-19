@@ -1,10 +1,9 @@
 package Control;
 
 import Model.Meals;
+import Model.MensaMealWithDate;
 import View.MainView;
 import View.MealTable;
-import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
-
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,6 +45,10 @@ public class Controller {
         return new AddMealMouseAdapter();
     }
 
+    public AddHistoryMouseAdapter createHistoryMouseAdapter() {
+        return new AddHistoryMouseAdapter();
+    }
+
     public class SelectedDayButtonActionListener implements ActionListener {
 
         @Override
@@ -70,7 +73,7 @@ public class Controller {
         private void updateTable(MealTable mealTable) {
             view.getMainDisplay().getCardLayout().show(view.getMainDisplay().getMainDisplayPanel(), "1");
             //TODO: colArr is same in MealTable, how can I use the same one?
-            String[] colArr = {"Name", "Preis", "Linie"};
+            String[] colArr = {"Name", "Preis in €", "Linie"};
             DefaultTableModel updatedTabelModel = new DefaultTableModel(
                     mealTable.getDataArray(), colArr) {
                 @Override
@@ -85,11 +88,15 @@ public class Controller {
     public class AddMealMouseAdapter extends MouseAdapter {
         @Override
         public void mouseClicked(MouseEvent event) {
-            if(event.getClickCount() == 2) {
-                //TODO: implement event handling
-                System.out.println("Added");
 
+            if(event.getClickCount() == 2) {
+                int rowIndex = view.getMainDisplay().getMealTable().getMealsJTable().getSelectedRow();
+                view.getMainDisplay().getMealHistoryView().updateHistoryTable(getMealFromTable(rowIndex));
             }
+        }
+
+        private MensaMealWithDate getMealFromTable(int rowIndex) {
+            return view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
         }
     }
 
@@ -101,15 +108,26 @@ public class Controller {
         }
     }
 
+    public class AddHistoryMouseAdapter extends MouseAdapter {
+        @Override
+        public void mouseClicked(MouseEvent event) {
+
+            if(event.getClickCount() == 2) {
+                int rowIndex = view.getMainDisplay().getMealTable().getMealsJTable().getSelectedRow();
+                view.getMainDisplay().getMealHistoryView().removeRowFromHistory(rowIndex);
+            }
+        }
+
+        private MensaMealWithDate getMealFromTable(int rowIndex) {
+            return view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
+        }
+    }
+
     public class ShowNutrientsButtonActionListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             view.getMainDisplay().getCardLayout().show(view.getMainDisplay().getMainDisplayPanel(), "3");
-        }
-
-        private MensaMeal getMealFromTable() {
-
         }
     }
 }

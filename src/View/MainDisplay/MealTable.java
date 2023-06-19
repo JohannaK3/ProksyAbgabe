@@ -1,6 +1,8 @@
 package View;
 
 import Model.Meals;
+import Model.MensaMealWithDate;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -36,7 +38,7 @@ public class MealTable {
         mealTableBackgroundPanel = new JPanel(new BorderLayout());
         dateOverviewPanel = new JPanel(new GridLayout(0, 2));
 
-        String[] columnsArray = {"Name", "Preis", "Linie"};
+        String[] columnsArray = {"Name", "Preis in €", "Linie"};
         defaultTableModel = new DefaultTableModel(dataArray, columnsArray) {
             @Override
             public boolean isCellEditable(int row, int col) {
@@ -85,5 +87,9 @@ public class MealTable {
 
     public Object[][] getDataArray() {
         return dataArray.clone();
+    }
+
+    public MensaMealWithDate getMealOfRow(int row) {
+        return meals.getCurrentMeals().get(row);
     }
 }

@@ -3,6 +3,8 @@ package Control;
 import Model.Meals;
 import View.MainView;
 import View.MealTable;
+import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
+
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -66,6 +68,7 @@ public class Controller {
         }
 
         private void updateTable(MealTable mealTable) {
+            view.getMainDisplay().getCardLayout().show(view.getMainDisplay().getMainDisplayPanel(), "1");
             //TODO: colArr is same in MealTable, how can I use the same one?
             String[] colArr = {"Name", "Preis", "Linie"};
             DefaultTableModel updatedTabelModel = new DefaultTableModel(
@@ -85,6 +88,7 @@ public class Controller {
             if(event.getClickCount() == 2) {
                 //TODO: implement event handling
                 System.out.println("Added");
+
             }
         }
     }
@@ -93,7 +97,7 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            view.getMainDisplay().getCardLayout().show(view.getMainDisplay().getMainDisplayPanel(), "2");
         }
     }
 
@@ -101,6 +105,10 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            view.getMainDisplay().getCardLayout().show(view.getMainDisplay().getMainDisplayPanel(), "3");
+        }
+
+        private MensaMeal getMealFromTable() {
 
         }
     }

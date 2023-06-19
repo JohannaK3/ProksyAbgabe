@@ -1,7 +1,6 @@
 package Model;
 
 import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
-import javax.swing.*;
 import java.time.LocalDate;
 
     //creates new instance of a meal with date attribute
@@ -10,7 +9,7 @@ public class MensaMealWithDate implements Comparable<MensaMealWithDate> {
     private LocalDate date;
     private MensaMeal meal;
 
-    public LocalDate getDate() {
+    private LocalDate getDate() {
         return date;
     }
 
@@ -30,5 +29,11 @@ public class MensaMealWithDate implements Comparable<MensaMealWithDate> {
 
     public String[] getMealInfo() {
         return new String[]{meal.getName(), String.valueOf(meal.getPrice()), String.valueOf(meal.getLine())};
+    }
+
+    public String[] getExtendedMealInfo() {
+        return new String[] {meal.getName(), String.valueOf(this.getDate()), String.valueOf(meal.getPrice()),
+                String.valueOf(meal.getLine()), String.valueOf(meal.getKcal()), String.valueOf(meal.getProteins()),
+                String.valueOf(meal.getCarbs()), String.valueOf(meal.getFat())};
     }
 }

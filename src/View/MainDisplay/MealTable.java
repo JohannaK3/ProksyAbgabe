@@ -26,12 +26,8 @@ public class MealTable {
     private final JLabel todaysMenuLabel, selectedDateLabel;
     private String[][] dataArray;
 
-    private final JButton addButton;
-
-    //TODO: create add & remove button to add/remove meals to/from history
 
     public MealTable() {
-        String[] columnsArray = {"Name", "Preis", "Linie"};
         meals = new Meals(currentLocalDate);
 
         this.updateDataArray();
@@ -39,6 +35,8 @@ public class MealTable {
         //TODO: disable editing rows for all rows
         mealTableBackgroundPanel = new JPanel(new BorderLayout());
         dateOverviewPanel = new JPanel(new GridLayout(0, 2));
+
+        String[] columnsArray = {"Name", "Preis", "Linie"};
         defaultTableModel = new DefaultTableModel(dataArray, columnsArray) {
             @Override
             public boolean isCellEditable(int row, int col) {
@@ -54,7 +52,6 @@ public class MealTable {
         dateOverviewPanel.add(todaysMenuLabel);
         dateOverviewPanel.add(selectedDateLabel);
 
-        addButton = new JButton("Gericht Hinzufügen");
         scrollBarPane = new JScrollPane(mealsJTable);
         scrollBarPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollBarPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -88,9 +85,5 @@ public class MealTable {
 
     public Object[][] getDataArray() {
         return dataArray.clone();
-    }
-
-    public DefaultTableModel getDefaultTableModel() {
-        return defaultTableModel;
     }
 }

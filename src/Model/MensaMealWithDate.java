@@ -1,6 +1,7 @@
 package Model;
 
 import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
+import javax.swing.*;
 import java.time.LocalDate;
 
     //creates new instance of a meal with date attribute

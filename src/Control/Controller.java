@@ -6,6 +6,8 @@ import View.MealTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 
 public class Controller {
@@ -38,6 +40,10 @@ public class Controller {
         return new ShowNutrientsButtonActionListener();
     }
 
+    public AddMealMouseAdapter createMealMouseAdapter() {
+        return new AddMealMouseAdapter();
+    }
+
     public class SelectedDayButtonActionListener implements ActionListener {
 
         @Override
@@ -63,8 +69,23 @@ public class Controller {
             //TODO: colArr is same in MealTable, how can I use the same one?
             String[] colArr = {"Name", "Preis", "Linie"};
             DefaultTableModel updatedTabelModel = new DefaultTableModel(
-                    mealTable.getDataArray(), colArr);
+                    mealTable.getDataArray(), colArr) {
+                @Override
+                public boolean isCellEditable(int row, int col) {
+                    return false;
+                }
+            };
             mealTable.getMealsJTable().setModel(updatedTabelModel);
+        }
+    }
+
+    public class AddMealMouseAdapter extends MouseAdapter {
+        @Override
+        public void mouseClicked(MouseEvent event) {
+            if(event.getClickCount() == 2) {
+                //TODO: implement event handling
+                System.out.println("Added");
+            }
         }
     }
 

@@ -6,6 +6,8 @@ import View.Header.Header;
 import View.MainDisplay.MainDisplay;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MainView extends JFrame  {
 
@@ -36,7 +38,7 @@ public class MainView extends JFrame  {
         this.header.getSelectDate().getGetMenuForSelectedDayButton().addActionListener(controller.createSelectedDayButtonActionListener());
         this.header.getShowHistory().getShowHistoryButton().addActionListener(controller.createShowHistoryButtonActionListener());
         this.header.getShowNutrients().getShowNutrientsButton().addActionListener(controller.createShowNutrientsButtonActionListener());
-
+        this.mainDisplay.getMealTable().getMealsJTable().addMouseListener(controller.createMealMouseAdapter());
     }
 
     public MainView() {

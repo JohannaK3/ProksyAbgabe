@@ -40,6 +40,16 @@ public class MealHistoryView {
             public boolean isCellEditable(int row, int col) {
                 return false;
             }
+
+            @Override
+            public void fireTableRowsDeleted(int firstRow, int lastRow) {
+                super.fireTableRowsDeleted(firstRow, lastRow);
+            }
+
+            @Override
+            public void fireTableRowsInserted(int firstRow, int lastRow) {
+                super.fireTableRowsInserted(firstRow, lastRow);
+            }
         };
         defaultTableModel.setColumnIdentifiers(columnsArray);
 
@@ -58,15 +68,20 @@ public class MealHistoryView {
 
     public void updateHistoryTable(MensaMealWithDate meal) {
         defaultTableModel.addRow(meal.getExtendedMealInfo());
+        //TODO: update accumulatedNutrientsArray in Nutrients through Controller
+        //defaultTableModel.fireTableRowsInserted();
     }
 
-    //TODO: find cause for exception when deleting certain meals
     public void removeRowFromHistory(int rowIndex) {
         defaultTableModel.removeRow(rowIndex);
     }
 
     public JTable getHistoryTable() {
         return historyTable;
+    }
+
+    public Meals getMeals() {
+        return meals;
     }
 
 

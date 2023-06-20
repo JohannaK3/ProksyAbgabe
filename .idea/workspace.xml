@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Fenster switchen funktioniert -&gt; geklicktes Meal an MealHistory übergeben und hinzufügen">
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Meals zur History hinzufügen geht, entfernen wirft teilweise IndexOutOfBoundsException -&gt; warum?&#10;-&gt; NutrientsOverwview">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MealHistoryModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Nutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Nutrients.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MainDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MainDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +118,7 @@
       <workItem from="1686670869191" duration="31008000" />
       <workItem from="1686828445336" duration="3735000" />
       <workItem from="1686906592343" duration="20000" />
-      <workItem from="1686919334900" duration="61443000" />
+      <workItem from="1686919334900" duration="73121000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1686481039398</created>
@@ -236,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687196632404</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Meals zur History hinzufügen geht, entfernen wirft teilweise IndexOutOfBoundsException -&gt; warum?&#10;-&gt; NutrientsOverwview">
+      <created>1687201519588</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1687201519588</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +293,8 @@
     <MESSAGE value="Menus für andere Tage werden angezeigt, Menu-Anzeigen Button nach unten limitiert" />
     <MESSAGE value="Doppelklick auf Meal bewirkt Print in Console -&gt; event handling: hinzugefügt zur Historie" />
     <MESSAGE value="Fenster switchen funktioniert -&gt; geklicktes Meal an MealHistory übergeben und hinzufügen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fenster switchen funktioniert -&gt; geklicktes Meal an MealHistory übergeben und hinzufügen" />
+    <MESSAGE value="Meals zur History hinzufügen geht, entfernen wirft teilweise IndexOutOfBoundsException -&gt; warum?&#10;-&gt; NutrientsOverwview" />
+    <option name="LAST_COMMIT_MESSAGE" value="Meals zur History hinzufügen geht, entfernen wirft teilweise IndexOutOfBoundsException -&gt; warum?&#10;-&gt; NutrientsOverwview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

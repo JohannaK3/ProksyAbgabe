@@ -14,8 +14,7 @@ public class MensaMealWithDate implements Comparable<MensaMealWithDate> {
         return date;
     }
 
-    //TODO: Method needs to go somewhere in view, I dont know where
-    public String getDateOfMealInString() {
+    private String getDateOfMealInString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         return getDate().format(formatter);
     }

@@ -6,8 +6,6 @@ import View.Header.Header;
 import View.MainDisplay.MainDisplay;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class MainView extends JFrame  {
 
@@ -47,8 +45,8 @@ public class MainView extends JFrame  {
         contentPainContainer = getContentPane();
 
         backgroundPanel = new JPanel(new BorderLayout());
-        backgroundBorderPanel = new JPanel(new BorderLayout(50, 10));
-        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(10, 10 , 10 ,10));
+        backgroundBorderPanel = new JPanel(new BorderLayout(50, 20));
+        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(20, 20 , 20 ,20));
 
         contentPainContainer.add(backgroundPanel);
         backgroundPanel.add(backgroundBorderPanel, BorderLayout.CENTER);

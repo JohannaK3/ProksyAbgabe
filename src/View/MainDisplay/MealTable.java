@@ -2,7 +2,6 @@ package View;
 
 import Model.Meals;
 import Model.MensaMealWithDate;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -19,13 +18,13 @@ public class MealTable {
 
     private final JScrollPane scrollBarPane;
 
-    private final JPanel mealTableBackgroundPanel, dateOverviewPanel;
+    private final JPanel mealTableBackgroundPanel, dateOverviewPanel, footerPanel;
 
     //TODO: create Table Model -> possibly Meals modeln in different class
     private final JTable mealsJTable;
     private final DefaultTableModel defaultTableModel;
 
-    private final JLabel todaysMenuLabel, selectedDateLabel;
+    private final JLabel todaysMenuLabel, selectedDateLabel, dobbleclickLabel;
     private String[][] dataArray;
 
 
@@ -37,6 +36,7 @@ public class MealTable {
         //TODO: disable editing rows for all rows
         mealTableBackgroundPanel = new JPanel(new BorderLayout());
         dateOverviewPanel = new JPanel(new GridLayout(0, 2));
+        footerPanel = new JPanel();
 
         String[] columnsArray = {"Name", "Preis in €", "Linie"};
         defaultTableModel = new DefaultTableModel(dataArray, columnsArray) {
@@ -47,12 +47,17 @@ public class MealTable {
         };
         mealsJTable = new JTable(defaultTableModel);
 
+        dobbleclickLabel = new JLabel("Gericht hinzufügen: Doppelklick auf das Gericht", SwingConstants.LEFT);
         todaysMenuLabel = new JLabel("Tagesmenu, vom: " , SwingConstants.RIGHT);
         selectedDateLabel = new JLabel(currentLocalDate.format(formatter), SwingConstants.LEFT);
 
         mealTableBackgroundPanel.add(dateOverviewPanel, BorderLayout.NORTH);
+        mealTableBackgroundPanel.add(footerPanel, BorderLayout.SOUTH);
         dateOverviewPanel.add(todaysMenuLabel);
         dateOverviewPanel.add(selectedDateLabel);
+        footerPanel.add(dobbleclickLabel);
+        footerPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        footerPanel.setBackground(new Color(0xd2dedf));
 
         scrollBarPane = new JScrollPane(mealsJTable);
         scrollBarPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);

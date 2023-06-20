@@ -3,7 +3,6 @@ package View.MainDisplay;
 import View.MealHistoryView;
 import View.MealTable;
 import View.NutritientOverview;
-
 import javax.swing.*;
 import java.awt.*;
 

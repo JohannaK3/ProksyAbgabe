@@ -113,7 +113,7 @@ public class Controller {
         public void mouseClicked(MouseEvent event) {
 
             if(event.getClickCount() == 2) {
-                int rowIndex = view.getMainDisplay().getMealTable().getMealsJTable().getSelectedRow();
+                int rowIndex = view.getMainDisplay().getMealHistoryView().getHistoryTable().getSelectedRow();
                 view.getMainDisplay().getMealHistoryView().removeRowFromHistory(rowIndex);
             }
         }

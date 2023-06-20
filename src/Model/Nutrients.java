@@ -2,19 +2,20 @@ package Model;
 
 public class Nutrients {
 
-    private Object[][] accumulatedNutrientsArray;
     private double totalKCal;
     private double totalProteins;
     private double totalCarbs;
     private double totalFat;
-    private double totalVeggieAmount;
+    //private double totalVeggieAmount;
     private double totalCosts;
 
-    private final String totalKCalString, totalProteinsString, totalCarbsString, totalFatString, totalVeggieAmountString,
+    private final String totalKCalString, totalProteinsString, totalCarbsString, totalFatString,
                             totalCostsString;
+    //private final String totalVeggieAmountString;
 
+    private Object[][] accumulatedNutrientsArray;
     private final String[] attributesStringArr;
-    private String[] totalAmountArr;
+    private double[] totalAmountArr;
 
 
     public Nutrients() {
@@ -23,22 +24,21 @@ public class Nutrients {
         totalProteinsString = "Proteine";
         totalCarbsString = "Kohlenhydrate";
         totalFatString = "Fett";
-        totalVeggieAmountString = "Veggie-Anteil";
+        //totalVeggieAmountString = "Veggie-Anteil";
         totalCostsString = "Kosten";
 
+        //TODO: add Veggie Amount to Array
         attributesStringArr = new String[]{totalKCalString, totalProteinsString, totalCarbsString, totalFatString,
-                totalVeggieAmountString, totalCostsString};
+                totalCostsString};
 
-        totalAmountArr = new String[] {String.valueOf(totalKCal), String.valueOf(totalProteins),
-                String.valueOf(totalCarbs), String.valueOf(totalFat), String.valueOf(totalVeggieAmount),
-                String.valueOf(totalCosts)};
+        //TODO: add Veggie Amount to Array
+        totalAmountArr = new double[] {totalKCal, totalProteins, totalCarbs, totalFat, totalCosts};
+        accumulatedNutrientsArray = new String[attributesStringArr.length][2];
         updateAccumulatedNutrientsArray(totalAmountArr);
-
-
     }
 
 
-    public String[] updateNutrients(MensaMealWithDate meal) {
+    public double[] updateNutrients(MensaMealWithDate meal) {
         totalKCal += meal.getMeal().getKcal();
         totalProteins += meal.getMeal().getProteins();
         totalCarbs += meal.getMeal().getCarbs();
@@ -50,17 +50,14 @@ public class Nutrients {
         return totalAmountArr.clone();
     }
 
-    private void updateAccumulatedNutrientsArray(String[] totalAmountArr) {
-        this.totalAmountArr = totalAmountArr;
-
-        accumulatedNutrientsArray = new String[attributesStringArr.length][2];
-        //TODO: lenght-1?
-        for (int i = 0; i < attributesStringArr.length - 1 ; i++) {
+    public void updateAccumulatedNutrientsArray(double[] totalAmountArr) {
+        this.totalAmountArr = totalAmountArr.clone();
+        for (int i = 0; i < attributesStringArr.length; i++) {
             for (int j = 0; j < 2; j++) {
                 if (j == 0) {
                     accumulatedNutrientsArray[i][j] = attributesStringArr[i];
                 } else {
-                    accumulatedNutrientsArray[i][j] = totalAmountArr[i];
+                    accumulatedNutrientsArray[i][j] = convertToString(totalAmountArr)[i];
                 }
 
             }
@@ -70,5 +67,13 @@ public class Nutrients {
 
     public Object[][] getAccumulatedNutrientsArray() {
         return accumulatedNutrientsArray.clone();
+    }
+
+    private String[] convertToString(double[] doubleArr) {
+        String[] stringArr = new String[doubleArr.length];
+        for (int i = 0; i < doubleArr.length; i++) {
+            stringArr[i] = String.valueOf(doubleArr[i]);
+        }
+        return stringArr;
     }
 }

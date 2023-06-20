@@ -43,6 +43,9 @@ public class MainDisplay {
     public MealHistoryView getMealHistoryView() {
         return mealHistoryView;
     }
+    public NutritientOverview getNutritientOverview() {
+        return nutritientOverview;
+    }
 
     public CardLayout getCardLayout() {
         return cardLayout;

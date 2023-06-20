@@ -54,4 +54,12 @@ public class NutritientOverview {
         return nutrientsBackgroundPanel;
     }
 
+    public JTable getNutrientstable() {
+        return nutrientstable;
+    }
+
+    public Object[][] getAccumulatedNutrientArray() {
+        return accumulatedNutrientArray.clone();
+    }
+
 }

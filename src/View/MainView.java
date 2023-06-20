@@ -55,6 +55,7 @@ public class MainView extends JFrame  {
         this.setTitle("MENSA FOOD TRACKER");
         this.initialize();
         this.getContentPane().setBackground(new Color(0xeff5dc));
+        setLocationRelativeTo(null);
 
         this.header = new Header();
         this.mainDisplay = new MainDisplay();

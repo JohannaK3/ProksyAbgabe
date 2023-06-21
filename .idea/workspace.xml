@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Methoden etc. zum Updaten der Nutrients stehen und funktionieren (soweit geprüft, glaube alle, aber nicht sicher). Werte erhöhen sich nicht.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; Mealtype mit VeggieAnteil mit einbeziehen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs">
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Werte erhöhen sich immer noch nicht. Ich glaube die update-Methode funktioniert nicht.&#10;Veggie-Anteil-Methode funktioniert.&#10;In vielen Klassen Teile des Konstruktors in Methoden ausgelagert.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Nutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Nutrients.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MainDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MainDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +113,7 @@
       <workItem from="1686670869191" duration="31008000" />
       <workItem from="1686828445336" duration="3735000" />
       <workItem from="1686906592343" duration="20000" />
-      <workItem from="1686919334900" duration="90238000" />
+      <workItem from="1686919334900" duration="97784000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1686481039398</created>
@@ -259,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687283297446</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Werte erhöhen sich immer noch nicht. Ich glaube die update-Methode funktioniert nicht.&#10;Veggie-Anteil-Methode funktioniert.&#10;In vielen Klassen Teile des Konstruktors in Methoden ausgelagert.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs">
+      <created>1687344179715</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1687344179715</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +312,8 @@
     <MESSAGE value="Meals zur History hinzufügen geht, entfernen wirft teilweise IndexOutOfBoundsException -&gt; warum?&#10;-&gt; NutrientsOverwview" />
     <MESSAGE value="Fehler in der History gefunden und gefixt. NutrientsOverview erstellt, auch dessen Model. &#10;-&gt; Update Methode aus Nutrients Model mit MouseListener aufrufen." />
     <MESSAGE value="Methoden etc. zum Updaten der Nutrients stehen und funktionieren (soweit geprüft, glaube alle, aber nicht sicher). Werte erhöhen sich nicht.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; Mealtype mit VeggieAnteil mit einbeziehen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Methoden etc. zum Updaten der Nutrients stehen und funktionieren (soweit geprüft, glaube alle, aber nicht sicher). Werte erhöhen sich nicht.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; Mealtype mit VeggieAnteil mit einbeziehen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
+    <MESSAGE value="Werte erhöhen sich immer noch nicht. Ich glaube die update-Methode funktioniert nicht.&#10;Veggie-Anteil-Methode funktioniert.&#10;In vielen Klassen Teile des Konstruktors in Methoden ausgelagert.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Werte erhöhen sich immer noch nicht. Ich glaube die update-Methode funktioniert nicht.&#10;Veggie-Anteil-Methode funktioniert.&#10;In vielen Klassen Teile des Konstruktors in Methoden ausgelagert.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -318,6 +322,21 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="10" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

@@ -13,7 +13,7 @@ public class Nutrients {
     private double totalVeggieAmount = 0;
     private double relativeVeggieAmount = 0;
     private double totalCosts = 0;
-
+    private static final String TOTAL_KCAL_STRING = "KCal";
     private String totalKCalString, totalProteinsString, totalCarbsString, totalFatString, totalCostsString,
             relativeVeggieAmountString;
 
@@ -25,7 +25,7 @@ public class Nutrients {
     public Nutrients() {
         initializeStrings();
         initializeArrays();
-        //updateAccumulatedNutrientsArray(totalAmountArr);
+        updateAccumulatedNutrientsArray();
     }
 
     private void initializeStrings() {
@@ -40,11 +40,13 @@ public class Nutrients {
     private void initializeArrays() {
         attributesStringArr = new String[]{totalKCalString, totalProteinsString, totalCarbsString, totalFatString,
                 relativeVeggieAmountString, totalCostsString};
+        populateTotalAmountArr();
+        accumulatedNutrientsArray = new String[attributesStringArr.length][2];
+    }
 
+    private void populateTotalAmountArr() {
         totalAmountArr = new double[] {totalKCal, totalProteins, totalCarbs, totalFat, relativeVeggieAmount,
                 totalCosts};
-
-        accumulatedNutrientsArray = new String[attributesStringArr.length][2];
     }
 
     private String[] convertToString(double[] doubleArr) {
@@ -55,54 +57,46 @@ public class Nutrients {
         return stringArr;
     }
 
-    private void veggieAmountCounter() {
-        totalVeggieAmount += 1;
-    }
-
-    private boolean checkMealType(MensaMealWithDate meal){
-        if (meal.getMeal().getType() == MensaMealType.VEGETARIAN || meal.getMeal().getType() == MensaMealType.VEGAN) {
-            veggieAmountCounter();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void updateNutrients(MensaMealWithDate meal) {
-        System.out.println(totalMealCounter);
+    public void addNutrients(MensaMealWithDate meal) {
         totalMealCounter += 1;
         totalKCal += meal.getMeal().getKcal();
         totalProteins += meal.getMeal().getProteins();
         totalCarbs += meal.getMeal().getCarbs();
         totalFat += meal.getMeal().getFat();
-        if (checkMealType(meal) == true) {
-            relativeVeggieAmount = (totalVeggieAmount / totalMealCounter) * 100;
-        } else {
-            relativeVeggieAmount = (totalVeggieAmount / totalMealCounter) * 100;
+        if (meal.getMeal().getType() == MensaMealType.VEGETARIAN || meal.getMeal().getType() == MensaMealType.VEGAN) {
+            totalVeggieAmount += 1;
         }
+        relativeVeggieAmount = (totalVeggieAmount / totalMealCounter) * 100;
+
         totalCosts += meal.getMeal().getPrice();
-        System.out.println(totalMealCounter);
-        updateAccumulatedNutrientsArray(totalAmountArr);
-        System.out.println(totalMealCounter);
+        populateTotalAmountArr();
+        updateAccumulatedNutrientsArray();
     }
 
-    //funktioniert nicht!
-    public void updateAccumulatedNutrientsArray(double[] totalAmountArr) {
-        //this.totalAmountArr = totalAmountArr.clone();
-        //System.out.println(totalAmountArr[0]);
-        for (int i = 0; i < attributesStringArr.length; i++) {
-            for (int j = 0; j < 2; j++) {
-                if (j == 0) {
-                    accumulatedNutrientsArray[i][j] = attributesStringArr[i];
-                } else {
-                    accumulatedNutrientsArray[i][j] = convertToString(totalAmountArr)[i];
-                }
+    public void removeNutrients(MensaMealWithDate meal) {
+        totalMealCounter -= 1;
+        totalKCal -= meal.getMeal().getKcal();
+        totalProteins -= meal.getMeal().getProteins();
+        totalCarbs -= meal.getMeal().getCarbs();
+        totalFat -= meal.getMeal().getFat();
+        if (meal.getMeal().getType() == MensaMealType.VEGETARIAN || meal.getMeal().getType() == MensaMealType.VEGAN) {
+            totalVeggieAmount -= 1;
+        }
+        relativeVeggieAmount = (totalVeggieAmount / totalMealCounter) * 100;
 
-            }
+        totalCosts -= meal.getMeal().getPrice();
+        populateTotalAmountArr();
+        updateAccumulatedNutrientsArray();
+    }
+
+    private void updateAccumulatedNutrientsArray() {
+        for (int rowIndex = 0; rowIndex < attributesStringArr.length; rowIndex++) {
+            int leftCol = 0;
+            int rightCol = 1;
+            accumulatedNutrientsArray[rowIndex][leftCol] = attributesStringArr[rowIndex];
+            accumulatedNutrientsArray[rowIndex][rightCol] = String.valueOf(totalAmountArr[rowIndex]);
 
         }
-        //System.arraycopy(totalAmountArr, 0, this.totalAmountArr, 0, totalAmountArr.length);
-        //System.out.println(totalAmountArr[0]);
     }
 
     public Object[][] getAccumulatedNutrientsArray() {

@@ -1,5 +1,6 @@
 package View;
 
+import Model.MensaMealWithDate;
 import Model.Nutrients;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,7 +16,7 @@ public class NutritientOverview {
     private final JScrollPane nutrientsScrollPane;
     private JLabel nutrientsHeaderLabel;
 
-    private JTable nutrientstable;
+    private JTable nutrientsTable;
     private DefaultTableModel defaultTableModel;
 
     private Object[][] accumulatedNutrientArray;
@@ -27,7 +28,7 @@ public class NutritientOverview {
         createNutrientsView();
         createNutrientsTable();
 
-        nutrientsScrollPane = new JScrollPane(nutrientstable);
+        nutrientsScrollPane = new JScrollPane(nutrientsTable);
 
         nutrientsBackgroundPanel.add(paddingBorderPanel, BorderLayout.CENTER);
         nutrientsBackgroundPanel.add(nutrientsHeaderPanel, BorderLayout.NORTH);
@@ -53,10 +54,11 @@ public class NutritientOverview {
                 return false;
             }
         };
-        defaultTableModel.setColumnIdentifiers(colsArray);
-        nutrientstable = new JTable(defaultTableModel);
 
-        nutrientstable.setRowHeight(70);
+        defaultTableModel.setColumnIdentifiers(colsArray);
+        nutrientsTable = new JTable(defaultTableModel);
+
+        nutrientsTable.setRowHeight(70);
     }
 
     public JPanel getNutrientsBackgroundPanel() {
@@ -64,11 +66,14 @@ public class NutritientOverview {
     }
 
     public JTable getNutrientsTable() {
-        return nutrientstable;
+        return nutrientsTable;
     }
 
     public Object[][] getAccumulatedNutrientArray() {
         return accumulatedNutrientArray.clone();
     }
 
+    public Nutrients getNutrients() {
+        return this.nutrients;
+    }
 }

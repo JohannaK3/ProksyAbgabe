@@ -47,8 +47,8 @@ public class Controller {
         return new AddMealMouseAdapter();
     }
 
-    public AddHistoryMouseAdapter createHistoryMouseAdapter() {
-        return new AddHistoryMouseAdapter();
+    public RemoveFromHistoryMouseAdapter createHistoryMouseAdapter() {
+        return new RemoveFromHistoryMouseAdapter();
     }
 
     public class SelectedDayButtonActionListener implements ActionListener {
@@ -89,29 +89,32 @@ public class Controller {
 
     public class AddMealMouseAdapter extends MouseAdapter {
 
-        private Nutrients nutrients = new Nutrients();
-        private double[] amountArr;
         private MensaMealWithDate selectedMeal;
         @Override
         public void mouseClicked(MouseEvent event) {
 
             if(event.getClickCount() == 2) {
                 int rowIndex = view.getMainDisplay().getMealTable().getMealsJTable().getSelectedRow();
-                view.getMainDisplay().getMealHistoryView().updateHistoryTable(getMealFromTable(rowIndex));
+                addMealToHistory(rowIndex);
 
                 selectedMeal = getMealFromTable(rowIndex);
-                System.out.println(selectedMeal.getMeal().getName());
-                //nutrients.updateAccumulatedNutrientsArray(nutrients.updateNutrients(selectedMeal));
-                nutrients.updateNutrients(selectedMeal);
-
+                updateNutrients(selectedMeal);
                 updateTable(view.getMainDisplay().getNutritientOverview());
             }
+        }
+
+        private void addMealToHistory(int rowIndex) {
+            view.getMainDisplay().getMealHistoryView().updateHistoryTable(getMealFromTable(rowIndex));
         }
 
         private MensaMealWithDate getMealFromTable(int rowIndex) {
             return view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
         }
 
+        private void updateNutrients(MensaMealWithDate selectedMeal) {
+            Nutrients nutrients = view.getMainDisplay().getNutritientOverview().getNutrients();
+            nutrients.addNutrients(selectedMeal);
+        }
         private void updateTable(NutritientOverview nutritientOverview) {
             //TODO: colArr is same in MealTable, how can I use the same one?
             String[] colArr = {"Attribut", "Kummulierter Wert"};
@@ -134,18 +137,42 @@ public class Controller {
         }
     }
 
-    public class AddHistoryMouseAdapter extends MouseAdapter {
+    public class RemoveFromHistoryMouseAdapter extends MouseAdapter {
+
+        MensaMealWithDate selectedMeal;
         @Override
         public void mouseClicked(MouseEvent event) {
 
             if(event.getClickCount() == 2) {
                 int rowIndex = view.getMainDisplay().getMealHistoryView().getHistoryTable().getSelectedRow();
                 view.getMainDisplay().getMealHistoryView().removeRowFromHistory(rowIndex);
+
+                selectedMeal = getMealFromTable(rowIndex);
+                updateNutrients(selectedMeal);
+                updateTable(view.getMainDisplay().getNutritientOverview());
             }
         }
 
         private MensaMealWithDate getMealFromTable(int rowIndex) {
-            return view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
+            return view.getMainDisplay().getMealHistoryView().getMealOfRow(rowIndex);
+        }
+
+        private void updateNutrients(MensaMealWithDate selectedMeal) {
+            Nutrients nutrients = view.getMainDisplay().getNutritientOverview().getNutrients();
+            nutrients.removeNutrients(selectedMeal);
+        }
+
+        private void updateTable(NutritientOverview nutritientOverview) {
+            //TODO: colArr is same in MealTable, how can I use the same one?
+            String[] colArr = {"Attribut", "Kummulierter Wert"};
+            DefaultTableModel updatedTabelModel = new DefaultTableModel(
+                    nutritientOverview.getAccumulatedNutrientArray(), colArr) {
+                @Override
+                public boolean isCellEditable(int row, int col) {
+                    return false;
+                }
+            };
+            nutritientOverview.getNutrientsTable().setModel(updatedTabelModel);
         }
     }
 

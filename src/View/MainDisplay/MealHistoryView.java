@@ -64,8 +64,6 @@ public class MealHistoryView {
 
     public void updateHistoryTable(MensaMealWithDate meal) {
         defaultTableModel.addRow(meal.getExtendedMealInfo());
-        //TODO: update accumulatedNutrientsArray in Nutrients through Controller
-        //defaultTableModel.fireTableRowsInserted();
     }
 
     public void removeRowFromHistory(int rowIndex) {
@@ -80,5 +78,8 @@ public class MealHistoryView {
         return meals;
     }
 
+    public MensaMealWithDate getMealOfRow(int row) {
+        return meals.getCurrentMeals().get(row);
+    }
 
 }

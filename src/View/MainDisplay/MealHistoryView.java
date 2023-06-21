@@ -9,6 +9,7 @@ import java.awt.*;
 public class MealHistoryView {
 
     private final Meals meals;
+    //private final Meals historyMeals;
     private final View.MealTable mealTable;
 
     private final JScrollPane historyScrollPane;
@@ -79,7 +80,9 @@ public class MealHistoryView {
     }
 
     public MensaMealWithDate getMealOfRow(int row) {
+        //historyMeals = new Meals()
         return meals.getCurrentMeals().get(row);
+        //return defaultTableModel.getValueAt(row, 0);
     }
 
 }

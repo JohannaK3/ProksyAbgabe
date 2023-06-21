@@ -23,14 +23,14 @@ public class Meals {
     //method gets meals for any future day from library
     private List<MensaMealWithDate> getMeals(LocalDate selectedDate) {
         List<MensaMeal> mensaMeals = mensa.fetchMeals(MensaLocation.ADENAUERRING, selectedDate);
-        List<MensaMealWithDate> mensaMealsWithDates = new ArrayList<>();
+        List<MensaMealWithDate> mensaMealsWithDate = new ArrayList<>();
 
         for(MensaMeal mensaMeal : mensaMeals) {
             MensaMealWithDate mensaMealWithDate = new MensaMealWithDate(mensaMeal, selectedDate);
-            mensaMealsWithDates.add(mensaMealWithDate);
+            mensaMealsWithDate.add(mensaMealWithDate);
         }
 
-        return mensaMealsWithDates;
+        return mensaMealsWithDate;
     }
 
     public void updateCurrentMeals(LocalDate selectedDate) {
@@ -40,6 +40,7 @@ public class Meals {
     public List<MensaMealWithDate> getCurrentMeals() {
         return Collections.unmodifiableList(currentMeals);
     }
+
 
 
 }

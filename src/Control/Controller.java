@@ -1,9 +1,11 @@
 package Control;
 
+import Model.MealHistory;
 import Model.Meals;
 import Model.MensaMealWithDate;
 import Model.Nutrients;
 import View.MainView;
+import View.MealHistoryView;
 import View.MealTable;
 import View.NutritientOverview;
 import javax.swing.table.DefaultTableModel;
@@ -89,33 +91,59 @@ public class Controller {
 
     public class AddMealMouseAdapter extends MouseAdapter {
 
+        private MealHistory mealHistory;
+        private MealHistoryView mealHistoryView;
+
         private MensaMealWithDate selectedMeal;
         @Override
         public void mouseClicked(MouseEvent event) {
 
             if(event.getClickCount() == 2) {
                 int rowIndex = view.getMainDisplay().getMealTable().getMealsJTable().getSelectedRow();
-                addMealToHistory(rowIndex);
+                selectedMeal = view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
+                addMealToHistory(selectedMeal);
 
-                selectedMeal = getMealFromTable(rowIndex);
                 updateNutrients(selectedMeal);
-                updateTable(view.getMainDisplay().getNutritientOverview());
+                updateNutrientsTable(view.getMainDisplay().getNutritientOverview());
             }
         }
 
-        private void addMealToHistory(int rowIndex) {
-            view.getMainDisplay().getMealHistoryView().updateHistoryTable(getMealFromTable(rowIndex));
+        private void addMealToHistory(MensaMealWithDate meal) {
+            mealHistory = new MealHistory();
+            mealHistory.addMealToList(meal);
+
+            //mealHistory.getHistoryArray();
+            //view.getMainDisplay().getMealHistoryView().updateHistoryTable(meal);
+            updateHistoryTable(mealHistoryView);
         }
 
+        /*
         private MensaMealWithDate getMealFromTable(int rowIndex) {
             return view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
         }
+        */
 
         private void updateNutrients(MensaMealWithDate selectedMeal) {
             Nutrients nutrients = view.getMainDisplay().getNutritientOverview().getNutrients();
             nutrients.addNutrients(selectedMeal);
         }
-        private void updateTable(NutritientOverview nutritientOverview) {
+
+        private void updateHistoryTable(MealHistoryView mealHistoryView) {
+
+            //TODO: colArr is same in MealTable, how can I use the same one?
+            String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)",
+                    "Kohlenhydrate (in g)", "Fett (in g)"};
+            DefaultTableModel updatedTabelModel = new DefaultTableModel(
+                    mealHistory.getHistoryArray(), columnsArray) {
+                @Override
+                public boolean isCellEditable(int row, int col) {
+                    return false;
+                }
+            };
+            mealHistoryView.getHistoryTable().setModel(updatedTabelModel);
+        }
+
+        private void updateNutrientsTable(NutritientOverview nutritientOverview) {
             //TODO: colArr is same in MealTable, how can I use the same one?
             String[] colArr = {"Attribut", "Kummulierter Wert"};
             DefaultTableModel updatedTabelModel = new DefaultTableModel(

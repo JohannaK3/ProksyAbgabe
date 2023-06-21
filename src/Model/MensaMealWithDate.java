@@ -4,7 +4,7 @@ import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class MensaMealWithDate implements Comparable<MensaMealWithDate> {
+public class MensaMealWithDate {
 
     private LocalDate date;
     private MensaMeal meal;
@@ -14,19 +14,13 @@ public class MensaMealWithDate implements Comparable<MensaMealWithDate> {
         this.meal = meal;
     }
 
-    private LocalDate getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
     private String getDateOfMealInString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         return getDate().format(formatter);
-    }
-
-    //TODO: sort meals in history by date (newest at the top)
-    @Override
-    public int compareTo(MensaMealWithDate meal) {
-        return getDate().compareTo(meal.getDate());
     }
 
     public MensaMeal getMeal() {

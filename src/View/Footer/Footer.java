@@ -3,6 +3,12 @@ package View.Footer;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Builds footer section of programm's GUI
+ *
+ * @author johannakrickow 8ugtfp)
+ * @version 22.06.2023
+ */
 public class Footer {
 
     private final JPanel footerPanel;
@@ -10,6 +16,11 @@ public class Footer {
 
     private JLabel lastUpdateLabel, placeHolder2, dateAndTimeOfLastUpdateLabel, authorLabel;
 
+    /**
+     * Constructs a Footer object.
+     * The footer is displayed using a JPanel with a GridLayout.
+     * This constructor initializes the necessary components and adds them to the footer panel.
+     */
     public Footer() {
 
         footerPanel = new JPanel(new GridLayout(0, 2));

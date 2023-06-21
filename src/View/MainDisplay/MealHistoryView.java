@@ -6,6 +6,12 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * Creates the table where all meals that were added to the history are shown with some of their attributes.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 public class MealHistoryView {
 
     private final Meals meals;
@@ -24,6 +30,11 @@ public class MealHistoryView {
 
     private int initialRowNum;
 
+    /**
+     * Constructs a MealHistoryView object.
+     * It contains a table to display the meal history.
+     * This constructor initializes the necessary components and sets up the layout of the meal history view.
+     */
     public MealHistoryView() {
         mealTable = new View.MealTable();
         meals = mealTable.getMeals();
@@ -44,6 +55,11 @@ public class MealHistoryView {
         historyHeaderLabel = new JLabel("Essenshistorie (zum Entfernen: Doppelklick auf das Gericht)");
     }
 
+    /**
+     * Creates the history table for displaying the meal history.
+     * Initializes the table model with column names and sets up the table to be non-editable.
+     * Resulting table is stored in 'historyTable' instance variable.
+     */
     private void createHistoryTabel() {
         String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
                 "Fett (in g)"};

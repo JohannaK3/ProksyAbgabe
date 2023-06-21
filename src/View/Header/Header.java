@@ -3,6 +3,12 @@ package View.Header;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Builds header section for programm's GUI
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 public class Header {
 
     private SelectDate selectDate;
@@ -10,6 +16,12 @@ public class Header {
     private ShowNutrients showNutrients;
     private final JPanel headerPanel;
 
+    /**
+     * Constructs a Header object.
+     * It contains buttons to select date, show history and show nutrients.
+     * The header is displayed using a JPanel with a GridLayout.
+     * This constructor initializes the necessary components and adds them to the header panel.
+     */
     public Header() {
 
         selectDate = new SelectDate();

@@ -7,6 +7,13 @@ import View.MainDisplay.MainDisplay;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Builds whole view with all of its components.
+ * Contains method to set Controller for the view.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 public class MainView extends JFrame  {
 
     private Controller controller;
@@ -21,10 +28,10 @@ public class MainView extends JFrame  {
     private JPanel backgroundPanel;
     private JPanel backgroundBorderPanel;
 
-
-
-
-
+    /**
+     * Constructs a new instance of the MainView class.
+     * Initializes the main view panel, sets general settings, adds header, main display, and footer components.
+     */
     public MainView() {
         contentPainContainer = getContentPane();
 
@@ -59,15 +66,19 @@ public class MainView extends JFrame  {
     }
 
     private void initialize() {
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
         setLocationRelativeTo(null);
     }
 
+    /**
+     * Sets the controller for the MainView.
+     * Attaches event listeners to corresponding components in the view, associates them with the controller's methods.
+     * @param controller
+     */
     public void setController(Controller controller) {
         this.controller = controller;
-        this.header.getSelectDate().getGetMenuForSelectedDayButton().addActionListener(
+        this.header.getSelectDate().getSelectedDateButton().addActionListener(
                 controller.createSelectedDayButtonActionListener());
         this.header.getShowHistory().getShowHistoryButton().addActionListener(
                 controller.createShowHistoryButtonActionListener());

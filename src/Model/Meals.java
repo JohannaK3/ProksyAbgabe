@@ -8,6 +8,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Uses MensaMeal Class of Library to create meal instances for meals of specific day when program starts
+ *
+ * @see MensaMeal
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 //start page, instance is created, when program starts
 public class Meals {
 
@@ -20,7 +28,11 @@ public class Meals {
         this.currentMeals = this.getMeals(selectedDate);
     }
 
-    //method gets meals for any future day from library
+    /**
+     * Retrieves a list of MensaMealWithDate objects for the selected date from library.
+     * @param selectedDate LocalDate object representing the selected date.
+     * @return List of MensaMealWithDate objects for the selected date.
+     */
     private List<MensaMealWithDate> getMeals(LocalDate selectedDate) {
         List<MensaMeal> mensaMeals = mensa.fetchMeals(MensaLocation.ADENAUERRING, selectedDate);
         List<MensaMealWithDate> mensaMealsWithDate = new ArrayList<>();
@@ -33,6 +45,10 @@ public class Meals {
         return mensaMealsWithDate;
     }
 
+    /**
+     * Updates the currentMeals list with the meals for the selected date.
+     * @param selectedDate LocalDate object representing the selected date.
+     */
     public void updateCurrentMeals(LocalDate selectedDate) {
         this.currentMeals = getMeals(selectedDate);
     }

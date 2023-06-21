@@ -1,11 +1,16 @@
 package View;
 
-import Model.MensaMealWithDate;
 import Model.Nutrients;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * Creates the table where the accumulated nutrients of all meals that are currently in the history are shown
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 public class NutritientOverview {
 
     private final Nutrients nutrients;
@@ -45,6 +50,9 @@ public class NutritientOverview {
         nutrientsHeaderLabel = new JLabel("Kumulierte Nährwerte");
     }
 
+    /**
+     * Create nutrients table.
+     */
     private void createNutrientsTable() {
         String[] colsArray = {"Attribut", "Kummulierter Wert"};
         accumulatedNutrientArray = nutrients.getAccumulatedNutrientsArray();

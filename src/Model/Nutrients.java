@@ -2,8 +2,14 @@ package Model;
 
 import edu.kit.aifb.atks.mensascraper.lib.MensaMealType;
 
+/**
+ * Contains nutritienal information about meals.
+ * Contains methods to accumulate nutrients of all meals in history.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 public class Nutrients {
-
 
     private int totalMealCounter = 0;
     private double totalKCal = 0;
@@ -49,14 +55,11 @@ public class Nutrients {
                 totalCosts};
     }
 
-    private String[] convertToString(double[] doubleArr) {
-        String[] stringArr = new String[doubleArr.length];
-        for (int i = 0; i < doubleArr.length; i++) {
-            stringArr[i] = String.valueOf(doubleArr[i]);
-        }
-        return stringArr;
-    }
-
+    /**
+     * Adds nutrients of a MensaMealWithDate object to the accumulated nutrient totals.
+     * Updates relevant counters and arrays accordingly.
+     * @param meal MensaMealWithDate object representing the meal.
+     */
     public void addNutrients(MensaMealWithDate meal) {
         totalMealCounter += 1;
         totalKCal += meal.getMeal().getKcal();
@@ -73,6 +76,11 @@ public class Nutrients {
         updateAccumulatedNutrientsArray();
     }
 
+    /**
+     * Removes nutrients of a MensaMealWithDate object from the accumulated nutrient totals.
+     * Updates relevant counters and arrays accordingly.
+     * @param meal MensaMealWithDate object representing the meal.
+     */
     public void removeNutrients(MensaMealWithDate meal) {
         totalMealCounter -= 1;
         totalKCal -= meal.getMeal().getKcal();
@@ -89,6 +97,12 @@ public class Nutrients {
         updateAccumulatedNutrientsArray();
     }
 
+    /**
+     * Updates accumulated nutrients array with the current totals.
+     * The accumulated nutrients array: 2D array. Rows: represents a nutrient attribute,
+     * left column: contains the attribute name, right column: contains total amount of attribute.
+     * Method updates the right column with current total amounts.
+     */
     private void updateAccumulatedNutrientsArray() {
         for (int rowIndex = 0; rowIndex < attributesStringArr.length; rowIndex++) {
             int leftCol = 0;

@@ -6,6 +6,13 @@ import View.NutritientOverview;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Space where meal table, meal history and nutrients overview is shown.
+ * Manages which of the above is shown.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 public class MainDisplay {
 
     private MealTable mealTable;
@@ -16,7 +23,11 @@ public class MainDisplay {
 
     private final CardLayout cardLayout;
 
-
+    /**
+     * Constructs a MainDisplay object.
+     * Contains components such as the meal table, meal history view, nutrient overview.
+     * This constructor initializes the necessary components and adds them to the main display panel using a card layout.
+     */
     public MainDisplay() {
 
         mealTable = new MealTable();
@@ -29,7 +40,6 @@ public class MainDisplay {
         mainDisplayPanel.add(mealTable.getMealTableBackgroundPanel(), "1");
         mainDisplayPanel.add(mealHistoryView.getHistoryBackgroundPanel(), "2");
         mainDisplayPanel.add(nutritientOverview.getNutrientsBackgroundPanel(), "3");
-        //TODO: replace mealTable with MealHistoryView when button is clicked
     }
 
     public JPanel getMainDisplayPanel() {

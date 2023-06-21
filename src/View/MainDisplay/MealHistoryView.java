@@ -13,53 +13,49 @@ public class MealHistoryView {
 
     private final JScrollPane historyScrollPane;
 
-    private final JPanel historyBackgroundPanel;
-    private final JPanel historyHeaderPanel;
+    private JPanel historyBackgroundPanel;
+    private JPanel historyHeaderPanel;
 
-    private final JLabel historyHeaderLabel;
+    private JLabel historyHeaderLabel;
 
-    private final JTable historyTable;
-    private final DefaultTableModel defaultTableModel;
+    private JTable historyTable;
+    private DefaultTableModel defaultTableModel;
 
-    private final int initialRowNum;
+    private int initialRowNum;
 
     public MealHistoryView() {
         mealTable = new View.MealTable();
         meals = mealTable.getMeals();
 
+        createHistoryView();
+        createHistoryTabel();
+
+        historyScrollPane = new JScrollPane(historyTable);
+
+        historyHeaderPanel.add(historyHeaderLabel);
+        historyBackgroundPanel.add(historyHeaderPanel, BorderLayout.NORTH);
+        historyBackgroundPanel.add(historyScrollPane, BorderLayout.CENTER);
+    }
+
+    private void createHistoryView() {
         historyBackgroundPanel = new JPanel(new BorderLayout());
         historyHeaderPanel = new JPanel();
         historyHeaderLabel = new JLabel("Essenshistorie (zum Entfernen: Doppelklick auf das Gericht)");
-        historyHeaderPanel.add(historyHeaderLabel);
+    }
 
+    private void createHistoryTabel() {
         String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
-                                    "Fett (in g)"};
+                "Fett (in g)"};
         initialRowNum = 0;
         defaultTableModel = new DefaultTableModel(initialRowNum, columnsArray.length) {
             @Override
             public boolean isCellEditable(int row, int col) {
                 return false;
             }
-
-            @Override
-            public void fireTableRowsDeleted(int firstRow, int lastRow) {
-                super.fireTableRowsDeleted(firstRow, lastRow);
-            }
-
-            @Override
-            public void fireTableRowsInserted(int firstRow, int lastRow) {
-                super.fireTableRowsInserted(firstRow, lastRow);
-            }
         };
         defaultTableModel.setColumnIdentifiers(columnsArray);
 
         historyTable = new JTable(defaultTableModel);
-
-        historyScrollPane = new JScrollPane(historyTable);
-
-        historyBackgroundPanel.add(historyHeaderPanel, BorderLayout.NORTH);
-        historyBackgroundPanel.add(historyScrollPane, BorderLayout.CENTER);
-
     }
 
     public JPanel getHistoryBackgroundPanel() {

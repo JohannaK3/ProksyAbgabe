@@ -6,8 +6,6 @@ import Model.Nutrients;
 import View.MainView;
 import View.MealTable;
 import View.NutritientOverview;
-import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
-
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -102,28 +100,14 @@ public class Controller {
                 view.getMainDisplay().getMealHistoryView().updateHistoryTable(getMealFromTable(rowIndex));
 
                 selectedMeal = getMealFromTable(rowIndex);
-                nutrients.updateAccumulatedNutrientsArray(nutrients.updateNutrients(selectedMeal));
-                System.out.println(nutrients.getAccumulatedNutrientsArray().toString());
+                System.out.println(selectedMeal.getMeal().getName());
+                //nutrients.updateAccumulatedNutrientsArray(nutrients.updateNutrients(selectedMeal));
+                nutrients.updateNutrients(selectedMeal);
 
-                //funktioniert
                 updateTable(view.getMainDisplay().getNutritientOverview());
             }
         }
 
-        //sehr wahrscheinlich unnötig
-        private double[] getNutrientsOfMeal(MensaMealWithDate selectedMeal) {
-            this.selectedMeal = selectedMeal;
-            double mealKCal = selectedMeal.getMeal().getKcal();
-            double mealProteins =  selectedMeal.getMeal().getProteins();
-            double mealCarbs = selectedMeal.getMeal().getCarbs();
-            double mealFat = selectedMeal.getMeal().getFat();
-            //mealType = selectedMeal.getMeal().getType();
-            double mealPrice = selectedMeal.getMeal().getPrice();
-
-            amountArr = new double[] {mealKCal, mealProteins, mealCarbs,
-                                        mealFat, mealPrice};
-            return amountArr;
-        }
         private MensaMealWithDate getMealFromTable(int rowIndex) {
             return view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
         }
@@ -138,7 +122,7 @@ public class Controller {
                     return false;
                 }
             };
-            nutritientOverview.getNutrientstable().setModel(updatedTabelModel);
+            nutritientOverview.getNutrientsTable().setModel(updatedTabelModel);
         }
     }
 

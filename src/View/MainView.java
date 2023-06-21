@@ -18,44 +18,18 @@ public class MainView extends JFrame  {
 
     //TODO: handle fonts
 
-    private final JPanel backgroundPanel;
-    private final JPanel backgroundBorderPanel;
+    private JPanel backgroundPanel;
+    private JPanel backgroundBorderPanel;
 
 
 
-    private void initialize() {
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setExtendedState(MAXIMIZED_BOTH); //TODO: decide pack() or this method
-        setResizable(true);
-        setLocationRelativeTo(null);
-    }
-
-    public void setController(Controller controller) {
-        this.controller = controller;
-        this.header.getSelectDate().getGetMenuForSelectedDayButton().addActionListener(controller.createSelectedDayButtonActionListener());
-        this.header.getShowHistory().getShowHistoryButton().addActionListener(controller.createShowHistoryButtonActionListener());
-        this.header.getShowNutrients().getShowNutrientsButton().addActionListener(controller.createShowNutrientsButtonActionListener());
-        this.mainDisplay.getMealTable().getMealsJTable().addMouseListener(controller.createMealMouseAdapter());
-        this.mainDisplay.getMealHistoryView().getHistoryTable().addMouseListener(controller.createHistoryMouseAdapter());
-    }
 
     public MainView() {
-
         contentPainContainer = getContentPane();
 
-        backgroundPanel = new JPanel(new BorderLayout());
-        backgroundBorderPanel = new JPanel(new BorderLayout(50, 20));
-        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(20, 20 , 20 ,20));
-
-        contentPainContainer.add(backgroundPanel);
-        backgroundPanel.add(backgroundBorderPanel, BorderLayout.CENTER);
-
-        //general settings
-        this.setTitle("MENSA FOOD TRACKER");
-        this.initialize();
-        this.getContentPane().setBackground(new Color(0xeff5dc));
-        setLocationRelativeTo(null);
+        createMainViewPanel();
+        generalSettings();
 
         this.header = new Header();
         this.mainDisplay = new MainDisplay();
@@ -66,6 +40,43 @@ public class MainView extends JFrame  {
         backgroundBorderPanel.add(footer.getFooterPanel(), BorderLayout.SOUTH);
 
         pack();
+    }
+
+    private void  createMainViewPanel() {
+        backgroundPanel = new JPanel(new BorderLayout());
+        backgroundBorderPanel = new JPanel(new BorderLayout(50, 20));
+        backgroundPanel.setBorder(BorderFactory.createEmptyBorder(20, 20 , 20 ,20));
+
+        contentPainContainer.add(backgroundPanel);
+        backgroundPanel.add(backgroundBorderPanel, BorderLayout.CENTER);
+    }
+
+    private void generalSettings() {
+        this.setTitle("MENSA FOOD TRACKER");
+        this.initialize();
+        this.getContentPane().setBackground(new Color(0xeff5dc));
+        setLocationRelativeTo(null);
+    }
+
+    private void initialize() {
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(true);
+        setLocationRelativeTo(null);
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
+        this.header.getSelectDate().getGetMenuForSelectedDayButton().addActionListener(
+                controller.createSelectedDayButtonActionListener());
+        this.header.getShowHistory().getShowHistoryButton().addActionListener(
+                controller.createShowHistoryButtonActionListener());
+        this.header.getShowNutrients().getShowNutrientsButton().addActionListener(
+                controller.createShowNutrientsButtonActionListener());
+        this.mainDisplay.getMealTable().getMealsJTable().addMouseListener(
+                controller.createMealMouseAdapter());
+        this.mainDisplay.getMealHistoryView().getHistoryTable().addMouseListener(
+                controller.createHistoryMouseAdapter());
     }
 
     public Header getHeader() {

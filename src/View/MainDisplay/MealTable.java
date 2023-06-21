@@ -11,18 +11,20 @@ import java.time.format.DateTimeFormatter;
 
 public class MealTable {
 
+    private final Meals meals;
+
     private final LocalDate currentLocalDate = LocalDate.now();
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    private final Meals meals;
+    private JScrollPane scrollBarPane;
 
-    private final JScrollPane scrollBarPane;
-
-    private final JPanel mealTableBackgroundPanel, dateOverviewPanel, footerPanel;
+    private JPanel mealTableBackgroundPanel;
+    private JPanel dateOverviewPanel;
+    private JPanel footerPanel;
 
     //TODO: create Table Model -> possibly Meals modeln in different class
-    private final JTable mealsJTable;
-    private final DefaultTableModel defaultTableModel;
+    private JTable mealsJTable;
+    private DefaultTableModel defaultTableModel;
 
     private final JLabel todaysMenuLabel, selectedDateLabel, dobbleclickLabel;
     private String[][] dataArray;
@@ -30,27 +32,26 @@ public class MealTable {
 
     public MealTable() {
         meals = new Meals(currentLocalDate);
-
         this.updateDataArray();
 
-        //TODO: disable editing rows for all rows
-        mealTableBackgroundPanel = new JPanel(new BorderLayout());
-        dateOverviewPanel = new JPanel(new GridLayout(0, 2));
-        footerPanel = new JPanel();
-
-        String[] columnsArray = {"Name", "Preis in €", "Linie"};
-        defaultTableModel = new DefaultTableModel(dataArray, columnsArray) {
-            @Override
-            public boolean isCellEditable(int row, int col) {
-                return false;
-            }
-        };
-        mealsJTable = new JTable(defaultTableModel);
+        createMealTablePanel();
+        createTable();
 
         dobbleclickLabel = new JLabel("Gericht hinzufügen: Doppelklick auf das Gericht", SwingConstants.LEFT);
         todaysMenuLabel = new JLabel("Tagesmenu, vom: " , SwingConstants.RIGHT);
         selectedDateLabel = new JLabel(currentLocalDate.format(formatter), SwingConstants.LEFT);
 
+        addComponentsToPanel();
+
+    }
+
+    private void createMealTablePanel() {
+        mealTableBackgroundPanel = new JPanel(new BorderLayout());
+        dateOverviewPanel = new JPanel(new GridLayout(0, 2));
+        footerPanel = new JPanel();
+    }
+
+    private void addComponentsToPanel() {
         mealTableBackgroundPanel.add(dateOverviewPanel, BorderLayout.NORTH);
         mealTableBackgroundPanel.add(footerPanel, BorderLayout.SOUTH);
         dateOverviewPanel.add(todaysMenuLabel);
@@ -64,6 +65,17 @@ public class MealTable {
         scrollBarPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         mealTableBackgroundPanel.add(scrollBarPane, BorderLayout.CENTER);
+    }
+
+    private void createTable() {
+        String[] columnsArray = {"Name", "Preis in €", "Linie"};
+        defaultTableModel = new DefaultTableModel(dataArray, columnsArray) {
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                return false;
+            }
+        };
+        mealsJTable = new JTable(defaultTableModel);
     }
 
     public void updateDataArray() {

@@ -1,57 +1,95 @@
 package Model;
 
+import edu.kit.aifb.atks.mensascraper.lib.MensaMealType;
+
 public class Nutrients {
 
-    private double totalKCal;
-    private double totalProteins;
-    private double totalCarbs;
-    private double totalFat;
-    //private double totalVeggieAmount;
-    private double totalCosts;
 
-    private final String totalKCalString, totalProteinsString, totalCarbsString, totalFatString,
-                            totalCostsString;
-    //private final String totalVeggieAmountString;
+    private int totalMealCounter = 0;
+    private double totalKCal = 0;
+    private double totalProteins = 0;
+    private double totalCarbs = 0;
+    private double totalFat = 0;
+    private double totalVeggieAmount = 0;
+    private double relativeVeggieAmount = 0;
+    private double totalCosts = 0;
+
+    private String totalKCalString, totalProteinsString, totalCarbsString, totalFatString, totalCostsString,
+            relativeVeggieAmountString;
 
     private Object[][] accumulatedNutrientsArray;
-    private final String[] attributesStringArr;
+    private String[] attributesStringArr;
     private double[] totalAmountArr;
 
 
     public Nutrients() {
+        initializeStrings();
+        initializeArrays();
+        //updateAccumulatedNutrientsArray(totalAmountArr);
+    }
 
+    private void initializeStrings() {
         totalKCalString = "KCal";
         totalProteinsString = "Proteine";
         totalCarbsString = "Kohlenhydrate";
         totalFatString = "Fett";
-        //totalVeggieAmountString = "Veggie-Anteil";
+        relativeVeggieAmountString = "Veggie-Anteil";
         totalCostsString = "Kosten";
-
-        //TODO: add Veggie Amount to Array
-        attributesStringArr = new String[]{totalKCalString, totalProteinsString, totalCarbsString, totalFatString,
-                totalCostsString};
-
-        //TODO: add Veggie Amount to Array
-        totalAmountArr = new double[] {totalKCal, totalProteins, totalCarbs, totalFat, totalCosts};
-        accumulatedNutrientsArray = new String[attributesStringArr.length][2];
-        updateAccumulatedNutrientsArray(totalAmountArr);
     }
 
+    private void initializeArrays() {
+        attributesStringArr = new String[]{totalKCalString, totalProteinsString, totalCarbsString, totalFatString,
+                relativeVeggieAmountString, totalCostsString};
 
-    public double[] updateNutrients(MensaMealWithDate meal) {
+        totalAmountArr = new double[] {totalKCal, totalProteins, totalCarbs, totalFat, relativeVeggieAmount,
+                totalCosts};
+
+        accumulatedNutrientsArray = new String[attributesStringArr.length][2];
+    }
+
+    private String[] convertToString(double[] doubleArr) {
+        String[] stringArr = new String[doubleArr.length];
+        for (int i = 0; i < doubleArr.length; i++) {
+            stringArr[i] = String.valueOf(doubleArr[i]);
+        }
+        return stringArr;
+    }
+
+    private void veggieAmountCounter() {
+        totalVeggieAmount += 1;
+    }
+
+    private boolean checkMealType(MensaMealWithDate meal){
+        if (meal.getMeal().getType() == MensaMealType.VEGETARIAN || meal.getMeal().getType() == MensaMealType.VEGAN) {
+            veggieAmountCounter();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void updateNutrients(MensaMealWithDate meal) {
+        System.out.println(totalMealCounter);
+        totalMealCounter += 1;
         totalKCal += meal.getMeal().getKcal();
         totalProteins += meal.getMeal().getProteins();
         totalCarbs += meal.getMeal().getCarbs();
         totalFat += meal.getMeal().getFat();
-        //TODO: method to check what meal type and if veggie, add to totalVeggieAmount
-        //totalVeggieAmount += meal.getMeal().getType();
+        if (checkMealType(meal) == true) {
+            relativeVeggieAmount = (totalVeggieAmount / totalMealCounter) * 100;
+        } else {
+            relativeVeggieAmount = (totalVeggieAmount / totalMealCounter) * 100;
+        }
         totalCosts += meal.getMeal().getPrice();
-
-        return totalAmountArr.clone();
+        System.out.println(totalMealCounter);
+        updateAccumulatedNutrientsArray(totalAmountArr);
+        System.out.println(totalMealCounter);
     }
 
+    //funktioniert nicht!
     public void updateAccumulatedNutrientsArray(double[] totalAmountArr) {
-        this.totalAmountArr = totalAmountArr.clone();
+        //this.totalAmountArr = totalAmountArr.clone();
+        //System.out.println(totalAmountArr[0]);
         for (int i = 0; i < attributesStringArr.length; i++) {
             for (int j = 0; j < 2; j++) {
                 if (j == 0) {
@@ -63,17 +101,12 @@ public class Nutrients {
             }
 
         }
+        //System.arraycopy(totalAmountArr, 0, this.totalAmountArr, 0, totalAmountArr.length);
+        //System.out.println(totalAmountArr[0]);
     }
 
     public Object[][] getAccumulatedNutrientsArray() {
         return accumulatedNutrientsArray.clone();
     }
 
-    private String[] convertToString(double[] doubleArr) {
-        String[] stringArr = new String[doubleArr.length];
-        for (int i = 0; i < doubleArr.length; i++) {
-            stringArr[i] = String.valueOf(doubleArr[i]);
-        }
-        return stringArr;
-    }
 }

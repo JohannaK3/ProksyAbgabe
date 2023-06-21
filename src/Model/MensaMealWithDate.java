@@ -4,11 +4,15 @@ import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-//creates new instance of a meal with date attribute
 public class MensaMealWithDate implements Comparable<MensaMealWithDate> {
 
     private LocalDate date;
     private MensaMeal meal;
+
+    MensaMealWithDate(MensaMeal meal, LocalDate date) {
+        this.date = date;
+        this.meal = meal;
+    }
 
     private LocalDate getDate() {
         return date;
@@ -23,11 +27,6 @@ public class MensaMealWithDate implements Comparable<MensaMealWithDate> {
     @Override
     public int compareTo(MensaMealWithDate meal) {
         return getDate().compareTo(meal.getDate());
-    }
-
-    MensaMealWithDate(MensaMeal meal, LocalDate date) {
-        this.date = date;
-        this.meal = meal;
     }
 
     public MensaMeal getMeal() {

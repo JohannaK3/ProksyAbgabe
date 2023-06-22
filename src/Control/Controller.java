@@ -146,10 +146,25 @@ public class Controller {
 
         /**
          * Adds new meal to history and history list, calls to update the table.
-         * @param rowIndex representing the row containing the MensaMealWithDate object to be added to hsitory.
+         * @param rowIndex representing the row containing the MensaMealWithDate object to be added to history.
          */
         private void addMealToHistory(int rowIndex) {
-            view.getMainDisplay().getMealHistoryView().updateHistoryTable(getMealFromTable(rowIndex));
+            String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
+                    "Fett (in g)", "Vegetarisch?"};
+            Object[][] temp = view.getMainDisplay().getMealHistoryView().updateHistoryTable(getMealFromTable(rowIndex));
+
+
+            DefaultTableModel updatedTabelModel = new DefaultTableModel(
+                    temp, columnsArray) {
+                @Override
+                public boolean isCellEditable(int row, int col) {
+                    return false;
+                }
+            };
+
+            view.getMainDisplay().getMealHistoryView().getHistoryTable().setModel(updatedTabelModel);
+
+
         }
 
         private MensaMealWithDate getMealFromTable(int rowIndex) {
@@ -213,8 +228,6 @@ public class Controller {
      */
     public class RemoveFromHistoryMouseAdapter extends MouseAdapter {
 
-        MensaMealWithDate selectedMeal;
-
         /**
          * Is called when a mouse click event occurs on history table.
          * Handles double-click events on the history table.
@@ -230,6 +243,7 @@ public class Controller {
                 int rowIndex = view.getMainDisplay().getMealHistoryView().getHistoryTable().getSelectedRow();
                 updateNutrients(rowIndex);
                 view.getMainDisplay().getMealHistoryView().removeRowFromHistory(rowIndex);
+
                 updateTable(view.getMainDisplay().getNutritientOverview());
             }
         }

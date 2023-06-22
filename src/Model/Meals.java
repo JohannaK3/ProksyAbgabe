@@ -8,6 +8,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Uses MensaMeal Class of Library to create meal instances for meals of specific day when program starts
+ *
+ * @see MensaMeal
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 //start page, instance is created, when program starts
 public class Meals {
 

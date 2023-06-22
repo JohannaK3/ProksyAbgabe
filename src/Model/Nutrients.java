@@ -1,8 +1,14 @@
 package Model;
 
-import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
 import edu.kit.aifb.atks.mensascraper.lib.MensaMealType;
 
+/**
+ * Contains nutritional information about meals.
+ * Contains methods to accumulate nutrients of all meals in history.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 22.06.2023
+ */
 public class Nutrients {
 
 

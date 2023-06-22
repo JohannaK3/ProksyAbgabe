@@ -4,7 +4,12 @@ import Model.Meals;
 import Model.MensaMealWithDate;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
 
 public class MealHistoryView {
 
@@ -19,7 +24,6 @@ public class MealHistoryView {
     private JLabel historyHeaderLabel;
 
     private JTable historyTable;
-    private DefaultTableModel defaultTableModel;
 
     private int initialRowNum;
 
@@ -47,27 +51,56 @@ public class MealHistoryView {
         String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
                 "Fett (in g)", "Vegetarisch?"};
         initialRowNum = 0;
-        defaultTableModel = new DefaultTableModel(initialRowNum, columnsArray.length) {
+        DefaultTableModel historyTableModel = new DefaultTableModel(initialRowNum, columnsArray.length) {
             @Override
             public boolean isCellEditable(int row, int col) {
                 return false;
             }
         };
-        defaultTableModel.setColumnIdentifiers(columnsArray);
+        historyTableModel.setColumnIdentifiers(columnsArray);
 
-        historyTable = new JTable(defaultTableModel);
+        historyTable = new JTable(historyTableModel);
     }
 
     public JPanel getHistoryBackgroundPanel() {
         return historyBackgroundPanel;
     }
 
-    public void updateHistoryTable(MensaMealWithDate meal) {
-        defaultTableModel.addRow(meal.getExtendedMealInfo());
+    public Object[][] updateHistoryTable(MensaMealWithDate meal) {
+        DefaultTableModel model = (DefaultTableModel) historyTable.getModel();
+        model.addRow(meal.getExtendedMealInfo());
+        return getTableData(historyTable);
+    }
+
+    private Object[][] getTableData(JTable historyTable) {
+        TableModel dtm = historyTable.getModel();
+        int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+        Object[][] tableData = new Object[nRow][nCol];
+        for (int i = 0; i < nRow; i++) {
+            for (int j = 0; j < nCol; j++) {
+                tableData[i][j] = dtm.getValueAt(i, j);
+            }
+        }
+
+        Arrays.sort(tableData, (entity1, entity2) -> {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+            Date d1 = null;
+            Date d2 = null;
+            try {
+                d1 = sdf.parse((String) entity1[1]);
+                d2 = sdf.parse((String) entity2[1]);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return d2.compareTo(d1);
+        });
+
+        return tableData;
     }
 
     public void removeRowFromHistory(int rowIndex) {
-        defaultTableModel.removeRow(rowIndex);
+        DefaultTableModel model = (DefaultTableModel) historyTable.getModel();
+        model.removeRow(rowIndex);
     }
 
     public JTable getHistoryTable() {

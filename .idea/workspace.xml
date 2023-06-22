@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Stelle wo Code funktioniert 2">
-      <change afterPath="$PROJECT_DIR$/src/Model/History.java" afterDir="false" />
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/History.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Meals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Meals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Nutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Nutrients.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
@@ -284,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687437373707</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV">
+      <created>1687444044452</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687444044452</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +347,8 @@
     <MESSAGE value="Werte erhöhen sich. Beim Entfernen werden Werte um Werte des Gerichts mit Index aus Mealtable nicht History Table reduziert.&#10;-&gt; Fehler finden&#10;-&gt; History nach Datum ordnen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
     <MESSAGE value="Stelle wo Code funktioniert" />
     <MESSAGE value="Stelle wo Code funktioniert 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stelle wo Code funktioniert 2" />
+    <MESSAGE value="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -347,8 +357,23 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="10" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
+          <line>244</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
+          <line>246</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="View.MealHistoryView" memberName="mealTable" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="view.getMainDisplay().getMealTable().getMeals().currentMeals" language="JAVA" />

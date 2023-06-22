@@ -45,7 +45,7 @@ public class MealHistoryView {
 
     private void createHistoryTabel() {
         String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
-                "Fett (in g)"};
+                "Fett (in g)", "Vegetarisch?"};
         initialRowNum = 0;
         defaultTableModel = new DefaultTableModel(initialRowNum, columnsArray.length) {
             @Override
@@ -72,10 +72,6 @@ public class MealHistoryView {
 
     public JTable getHistoryTable() {
         return historyTable;
-    }
-
-    public Meals getMeals() {
-        return meals;
     }
 
     public MensaMealWithDate getMealOfRow(int row) {

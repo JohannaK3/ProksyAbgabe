@@ -1,5 +1,6 @@
 package Model;
 
+import edu.kit.aifb.atks.mensascraper.lib.MensaMeal;
 import edu.kit.aifb.atks.mensascraper.lib.MensaMealType;
 
 public class Nutrients {
@@ -45,8 +46,11 @@ public class Nutrients {
     }
 
     private void populateTotalAmountArr() {
-        totalAmountArr = new double[] {totalKCal, totalProteins, totalCarbs, totalFat, relativeVeggieAmount,
-                totalCosts};
+        totalAmountArr = new double[] {totalKCal, totalProteins, totalCarbs, totalFat, relativeVeggieAmount, totalCosts};
+
+        for (int i = 0; i < totalAmountArr.length; i++) {
+            totalAmountArr[i] = Math.round(totalAmountArr[i] * 100) / 100;
+        }
     }
 
     private String[] convertToString(double[] doubleArr) {
@@ -73,18 +77,18 @@ public class Nutrients {
         updateAccumulatedNutrientsArray();
     }
 
-    public void removeNutrients(MensaMealWithDate meal) {
+    public void removeNutrients(double kCal, double proteins, double carbs, double fat, String mealType, double price) {
         totalMealCounter -= 1;
-        totalKCal -= meal.getMeal().getKcal();
-        totalProteins -= meal.getMeal().getProteins();
-        totalCarbs -= meal.getMeal().getCarbs();
-        totalFat -= meal.getMeal().getFat();
-        if (meal.getMeal().getType() == MensaMealType.VEGETARIAN || meal.getMeal().getType() == MensaMealType.VEGAN) {
+        totalKCal -= kCal;
+        totalProteins -= proteins;
+        totalCarbs -= carbs;
+        totalFat -= fat;
+        if (mealType.equals("vegetarisch") || mealType.equals("vegan")) {
             totalVeggieAmount -= 1;
         }
-        relativeVeggieAmount = (totalVeggieAmount / totalMealCounter) * 100;
+        relativeVeggieAmount = totalMealCounter == 0 ? 0 : (totalVeggieAmount / totalMealCounter) * 100;
 
-        totalCosts -= meal.getMeal().getPrice();
+        totalCosts -= price;
         populateTotalAmountArr();
         updateAccumulatedNutrientsArray();
     }

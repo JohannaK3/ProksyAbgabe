@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Werte erhöhen sich. Beim Entfernen werden Werte um Werte des Gerichts mit Index aus Mealtable nicht History Table reduziert.&#10;-&gt; Fehler finden&#10;-&gt; History nach Datum ordnen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs">
-      <change afterPath="$PROJECT_DIR$/src/Model/MealHistory.java" afterDir="false" />
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Stelle wo Code funktioniert 2">
+      <change afterPath="$PROJECT_DIR$/src/Model/History.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Meals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Meals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Nutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Nutrients.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +27,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -48,25 +48,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/johannakrickow/IdeaProjects/Krickow_Johanna_ugtfp_Abgabe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/johannakrickow/IdeaProjects/Krickow_Johanna_ugtfp_Abgabe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -270,7 +270,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687356969849</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Stelle wo Code funktioniert">
+      <created>1687437202228</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1687437202228</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Stelle wo Code funktioniert 2">
+      <created>1687437373707</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687437373707</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +336,9 @@
     <MESSAGE value="Methoden etc. zum Updaten der Nutrients stehen und funktionieren (soweit geprüft, glaube alle, aber nicht sicher). Werte erhöhen sich nicht.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; Mealtype mit VeggieAnteil mit einbeziehen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
     <MESSAGE value="Werte erhöhen sich immer noch nicht. Ich glaube die update-Methode funktioniert nicht.&#10;Veggie-Anteil-Methode funktioniert.&#10;In vielen Klassen Teile des Konstruktors in Methoden ausgelagert.&#10;-&gt; Fehler finden, NutrientsOverview zum laufen bringen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
     <MESSAGE value="Werte erhöhen sich. Beim Entfernen werden Werte um Werte des Gerichts mit Index aus Mealtable nicht History Table reduziert.&#10;-&gt; Fehler finden&#10;-&gt; History nach Datum ordnen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Werte erhöhen sich. Beim Entfernen werden Werte um Werte des Gerichts mit Index aus Mealtable nicht History Table reduziert.&#10;-&gt; Fehler finden&#10;-&gt; History nach Datum ordnen&#10;-&gt; MealHistory mit CSV &#10;-&gt; Java Docs" />
+    <MESSAGE value="Stelle wo Code funktioniert" />
+    <MESSAGE value="Stelle wo Code funktioniert 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stelle wo Code funktioniert 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -331,31 +347,12 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="10" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
-          <line>174</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
-          <line>177</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
-          <line>178</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="view.getMainDisplay().getMealTable().getMeals().currentMeals" language="JAVA" />
+        <watch expression="view.getMainDisplay().getMealTable().getMeals().currentMeals.get(0).meal" />
       </configuration>
     </watches-manager>
   </component>

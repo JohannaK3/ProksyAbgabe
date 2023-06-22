@@ -130,7 +130,10 @@ public class Controller {
         private MealHistory mealHistory;
         private MealHistoryView mealHistoryView;
 
-        private MensaMealWithDate selectedMeal;
+        private int listIndexOfSelectedMeal;
+
+        private MensaMealWithDate selectedMealFromTable;
+        private MensaMealWithDate mealFromList;
 
         /**
          * Is called when a mouse click event occurs on meal table.
@@ -143,10 +146,14 @@ public class Controller {
 
             if(event.getClickCount() == 2) {
                 int rowIndex = view.getMainDisplay().getMealTable().getMealsJTable().getSelectedRow();
-                selectedMeal = view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
-                addMealToHistory(selectedMeal);
+                selectedMealFromTable = view.getMainDisplay().getMealTable().getMealOfRow(rowIndex);
 
-                updateNutrients(selectedMeal);
+                addMealToHistory(selectedMealFromTable);
+
+
+
+
+                updateNutrients(selectedMealFromTable);
                 updateNutrientsTable(view.getMainDisplay().getNutritientOverview());
             }
         }
@@ -158,7 +165,9 @@ public class Controller {
         private void addMealToHistory(MensaMealWithDate meal) {
             mealHistory = new MealHistory();
             mealHistory.addMealToList(meal);
-
+            listIndexOfSelectedMeal = mealHistory.getIndexOfMealInList(selectedMealFromTable);
+            mealFromList = mealHistory.getMealOfIndex(listIndexOfSelectedMeal);
+            view.getMainDisplay().getMealHistoryView().updateHistoryTable(mealFromList);
             //mealHistory.getHistoryArray();
             //view.getMainDisplay().getMealHistoryView().updateHistoryTable(meal);
             updateHistoryTable(mealHistoryView);

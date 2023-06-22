@@ -14,7 +14,7 @@ public class MealHistory {
 
     private final ArrayList<MensaMealWithDate> historyList;
     private MensaMealWithDate[] historyArray;
-    private Object[][] historyArray2D;
+    //private Object[][] historyArray2D;
 
     public MealHistory() {
         historyList = new ArrayList<>();
@@ -35,7 +35,7 @@ public class MealHistory {
                 return meal1.getDate().compareTo(meal2.getDate());
             }
         });
-        convertToArray(historyList);
+        historyArray = historyList.toArray(new MensaMealWithDate[historyList.size()]);
     }
 
     /**
@@ -43,6 +43,7 @@ public class MealHistory {
      * Creates 2D array to pass into table model.
      * @param historyList ArrayList of MensaMealWithDate objects representing the history list.
      */
+    /*
     private void convertToArray(ArrayList<MensaMealWithDate> historyList) {
         historyArray = historyList.toArray(new MensaMealWithDate[historyList.size()]);
         historyArray2D = new MensaMealWithDate[historyArray.length][8];
@@ -53,9 +54,22 @@ public class MealHistory {
 
     }
 
+     */
+
+    public int getIndexOfMealInList(MensaMealWithDate meal) {
+        return historyList.indexOf(meal);
+    }
+
+    public MensaMealWithDate getMealOfIndex(int index) {
+        return historyList.get(index);
+    }
+
+    /*
     public Object[][] getHistoryArray() {
         return historyArray2D.clone();
     }
+
+     */
 
 
 }

@@ -100,6 +100,7 @@ public class Controller {
                 selectedMeal = getMealFromTable(rowIndex);
                 updateNutrients(selectedMeal);
                 updateTable(view.getMainDisplay().getNutritientOverview());
+                // tmep
             }
         }
 

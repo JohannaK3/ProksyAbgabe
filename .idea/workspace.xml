@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Alles funktioniert!!!!&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV">
-      <change afterPath="$PROJECT_DIR$/cache/cache.csv" afterDir="false" />
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Cache funktioniert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen">
+      <change afterPath="$PROJECT_DIR$/src/Control/AddMealMouseAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Control/RemoveFromHistoryMouseAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Control/SelectedDayButtonActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Control/ShowHistoryButtonActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Control/ShowNutrientsButtonActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Control/WindowActionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cache.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cache.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Nutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Nutrients.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Footer/Footer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Footer/Footer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687455756034</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Cache funktioniert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen">
+      <created>1687514706954</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1687514706954</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +343,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Grundstruktur" />
     <MESSAGE value="Bei Datumänderung wird immer neue Instanz von Meals erstellt. MensaMealWithDate Klasse. Controller Konstruktor. Klassenstruktur von View." />
     <MESSAGE value="Irgendwas in View" />
     <MESSAGE value="Vieles in View instanziiert" />
@@ -354,7 +367,8 @@
     <MESSAGE value="Stelle wo Code funktioniert 2" />
     <MESSAGE value="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
     <MESSAGE value="Alles funktioniert!!!!&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alles funktioniert!!!!&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
+    <MESSAGE value="Cache funktioniert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cache funktioniert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -363,16 +377,6 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="10" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
-          <line>255</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
-          <line>257</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

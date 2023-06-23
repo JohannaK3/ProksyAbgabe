@@ -39,8 +39,11 @@ public class NutritientOverview {
 
     private void createNutrientsView() {
         nutrientsBackgroundPanel = new JPanel(new BorderLayout());
+        nutrientsBackgroundPanel.setBorder(BorderFactory.createLineBorder(Color.black));
         nutrientsHeaderPanel = new JPanel();
+        nutrientsHeaderPanel.setBackground(new Color(0xeff5dc));
         paddingBorderPanel = new JPanel(new BorderLayout());
+        paddingBorderPanel.setBackground(new Color(0xeff5dc));
         paddingBorderPanel.setBorder(BorderFactory.createEmptyBorder(20, 100, 80, 100));
         nutrientsHeaderLabel = new JLabel("Kumulierte Nährwerte");
     }

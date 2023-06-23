@@ -47,18 +47,22 @@ public class MealTable {
 
     private void createMealTablePanel() {
         mealTableBackgroundPanel = new JPanel(new BorderLayout());
-        dateOverviewPanel = new JPanel(new GridLayout(0, 2));
+        dateOverviewPanel = new JPanel();
         footerPanel = new JPanel();
     }
 
     private void addComponentsToPanel() {
         mealTableBackgroundPanel.add(dateOverviewPanel, BorderLayout.NORTH);
         mealTableBackgroundPanel.add(footerPanel, BorderLayout.SOUTH);
+
         dateOverviewPanel.add(todaysMenuLabel);
         dateOverviewPanel.add(selectedDateLabel);
+        dateOverviewPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        dateOverviewPanel.setBackground(new Color(0xeff5dc));
+
         footerPanel.add(dobbleclickLabel);
         footerPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-        footerPanel.setBackground(new Color(0xd2dedf));
+        footerPanel.setBackground(new Color(0xeff5dc));
 
         scrollBarPane = new JScrollPane(mealsJTable);
         scrollBarPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);

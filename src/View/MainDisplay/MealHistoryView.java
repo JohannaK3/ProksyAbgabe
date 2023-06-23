@@ -4,13 +4,11 @@ import Model.Meals;
 import Model.MensaMealWithDate;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Vector;
 
 public class MealHistoryView {
 
@@ -21,8 +19,10 @@ public class MealHistoryView {
 
     private JPanel historyBackgroundPanel;
     private JPanel historyHeaderPanel;
+    private JPanel historyFooterPanel;
 
     private JLabel historyHeaderLabel;
+    private JLabel historyFooterLabel;
 
     private JTable historyTable;
 
@@ -38,14 +38,22 @@ public class MealHistoryView {
         historyScrollPane = new JScrollPane(historyTable);
 
         historyHeaderPanel.add(historyHeaderLabel);
+        historyFooterPanel.add(historyFooterLabel);
         historyBackgroundPanel.add(historyHeaderPanel, BorderLayout.NORTH);
         historyBackgroundPanel.add(historyScrollPane, BorderLayout.CENTER);
+        historyBackgroundPanel.add(historyFooterPanel, BorderLayout.SOUTH);
     }
 
     private void createHistoryView() {
         historyBackgroundPanel = new JPanel(new BorderLayout());
         historyHeaderPanel = new JPanel();
-        historyHeaderLabel = new JLabel("Essenshistorie (zum Entfernen: Doppelklick auf das Gericht)");
+        historyHeaderPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        historyHeaderPanel.setBackground(new Color(0xeff5dc));
+        historyFooterPanel = new JPanel();
+        historyFooterPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        historyFooterPanel.setBackground(new Color(0xeff5dc));
+        historyFooterLabel = new JLabel("Zum Entfernen: Doppelklick auf das Gericht");
+        historyHeaderLabel = new JLabel("Essenshistorie");
     }
 
     private void createHistoryTabel() {

@@ -7,7 +7,7 @@ import View.MainView;
  * Creates instances and starts program.
  *
  * @author johannakrickow (ugtfp)
- * @version 22.06.2023
+ * @version 23.06.2023
  */
 public class Main {
 

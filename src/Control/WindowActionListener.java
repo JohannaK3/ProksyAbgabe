@@ -1,6 +1,5 @@
 package Control;
 
-
 import Model.Nutrients;
 import View.MainView;
 import View.NutritientOverview;
@@ -18,33 +17,52 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * WindowActionListener is an implementation of the WindowAdapter class. It handles window-related events for MainView.
+ * It performs actions when the window is opened or closed, such as reading from and writing to a file.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 23.06.2023
+ */
 public class WindowActionListener extends WindowAdapter {
 
     private final MainView view;
+    private final String[] colArr = {"Attribut", "Kummulierter Wert"};
+    private final String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)",
+            "Kohlenhydrate (in g)", "Fett (in g)", "Vegetarisch?"};
+    private final Path path = Paths.get("cache" + File.separator + "cache.csv");
+    private static final String DELIMITER = ";";
 
     public WindowActionListener(MainView view) {
         this.view = view;
     }
 
-    private final Path path = Paths.get("cache" + File.separator + "cache.csv");
-    private static final String DELIMITER = ";";
-
+    /**
+     * Called when the window is opened. Reads data from the cache file and updates the view accordingly.
+     * @param e WindowEvent that occurred.
+     */
     @Override
     public void windowOpened(WindowEvent e) {
         readFromFile();
     }
 
+    /**
+     * Called when the window is closing. Writes data to the cache file.
+     * @param e The WindowEvent that occurred.
+     */
     @Override
     public void windowClosing(WindowEvent e) {
         writeToFile();
     }
 
+    /**
+     * Writes meal history data to the cache file.
+     * Catches exceptions when file cannot be written.
+     */
     private void writeToFile() {
         Object[][] mealHistory = view.getMainDisplay().getMealHistoryView().getTableData2();
-        String header = "Name;Datum;Preis;Linie;KCal;Proteine;Kohlenhydrate;Fett;Typ" + System.lineSeparator();
 
         try(BufferedWriter writer = Files.newBufferedWriter(path)) {
-            //writer.write(header);
             for (Object[] meal : mealHistory) {
                 String[] stringMeal = Arrays.stream(meal).toArray(String[]::new);
                 String mealString = String.join(DELIMITER, stringMeal);
@@ -58,14 +76,21 @@ public class WindowActionListener extends WindowAdapter {
         }
     }
 
+    /**
+     * Reads meal history data from the cache file and updates the view.
+     */
     private void readFromFile() {
         Object[][] historyMeals = getMealsFromCache();
         setHistoryWithCachedMeals(historyMeals);
         updateNutrientsFromCache(historyMeals);
     }
 
+    /**
+     * Retrieves meal history data from the cache file.
+     * Catches exception when file cannot be read.
+     * @return array of objects representing the meal history data.
+     */
     private Object[][] getMealsFromCache() {
-
         List<List<Object>> mealList = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             String line;
@@ -73,7 +98,6 @@ public class WindowActionListener extends WindowAdapter {
                 List<Object> columns = List.of(line.split(DELIMITER));
                 mealList.add(columns);
             }
-
             return mealList.stream().map(meal -> meal.toArray(new Object[0])).toArray(Object[][]::new);
 
         } catch (IOException ioException) {
@@ -83,10 +107,11 @@ public class WindowActionListener extends WindowAdapter {
         }
     }
 
+    /**
+     * Sets the meal history table model with the cached meals.
+     * @param historyMeals array containing cached meal history data.
+     */
     private void setHistoryWithCachedMeals(Object[][] historyMeals) {
-        String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
-                "Fett (in g)", "Vegetarisch?"};
-
         DefaultTableModel updatedTabelModel = new DefaultTableModel(
                 historyMeals, columnsArray) {
             @Override
@@ -97,14 +122,17 @@ public class WindowActionListener extends WindowAdapter {
 
         view.getMainDisplay().getMealHistoryView().getHistoryTable().setModel(updatedTabelModel);
     }
+
+    /**
+     * Updates the nutrients view table model with the cached data.
+     * @param historyMeals array containing cached meal history data.
+     */
     private void updateNutrientsFromCache(Object[][] historyMeals) {
         NutritientOverview nutritientOverview = view.getMainDisplay().getNutritientOverview();
         Nutrients nutrients = nutritientOverview.getNutrients();
 
         nutrients.updateNutrientsFromCache(historyMeals);
 
-        //TODO: colArr is same in MealTable, how can I use the same one?
-        String[] colArr = {"Attribut", "Kummulierter Wert"};
         DefaultTableModel updatedTabelModel = new DefaultTableModel(
                 nutritientOverview.getAccumulatedNutrientArray(), colArr) {
             @Override

@@ -6,6 +6,10 @@ import View.NutritientOverview;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * MainDisplay represents the main display of the application.
+ * It contains components for displaying the meal table, meal history, and nutrient overview.
+ */
 public class MainDisplay {
 
     private MealTable mealTable;
@@ -16,7 +20,11 @@ public class MainDisplay {
 
     private final CardLayout cardLayout;
 
-
+    /**
+     * Constructs a new MainDisplay object.
+     * It initializes the meal table, meal history, and nutrient overview components.
+     * The main display panel uses a card layout to switch between different views.
+     */
     public MainDisplay() {
 
         mealTable = new MealTable();
@@ -29,7 +37,6 @@ public class MainDisplay {
         mainDisplayPanel.add(mealTable.getMealTableBackgroundPanel(), "1");
         mainDisplayPanel.add(mealHistoryView.getHistoryBackgroundPanel(), "2");
         mainDisplayPanel.add(nutritientOverview.getNutrientsBackgroundPanel(), "3");
-        //TODO: replace mealTable with MealHistoryView when button is clicked
     }
 
     public JPanel getMainDisplayPanel() {

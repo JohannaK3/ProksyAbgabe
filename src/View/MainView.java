@@ -7,6 +7,13 @@ import View.MainDisplay.MainDisplay;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Represents the main view of the application.
+ * Every content of the GUI is displayed by this class.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 23.06.2023
+ */
 public class MainView extends JFrame  {
 
     private Controller controller;
@@ -14,17 +21,9 @@ public class MainView extends JFrame  {
     private MainDisplay mainDisplay;
     private Footer footer;
 
-    //private final Container contentPainContainer;
-
-    //TODO: handle fonts
-
     private JFrame application;
     private JPanel backgroundPanel;
     private JPanel backgroundBorderPanel;
-
-
-
-
 
     public MainView() {
         application = new JFrame();
@@ -62,12 +61,16 @@ public class MainView extends JFrame  {
     }
 
     private void initialize() {
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
         setLocationRelativeTo(null);
     }
 
+    /**
+     * Sets the controller for the GUI.
+     * Adds listeners and adapters to the buttons/other components.
+     * @param controller
+     */
     public void setController(Controller controller) {
         this.controller = controller;
         this.header.getSelectDate().getGetMenuForSelectedDayButton().addActionListener(
@@ -89,9 +92,5 @@ public class MainView extends JFrame  {
 
     public MainDisplay getMainDisplay() {
         return mainDisplay;
-    }
-
-    public Footer getFooter() {
-        return footer;
     }
 }

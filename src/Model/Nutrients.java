@@ -4,10 +4,10 @@ import edu.kit.aifb.atks.mensascraper.lib.MensaMealType;
 
 /**
  * Contains nutritional information about meals.
- * Contains methods to accumulate nutrients of all meals in history.
+ * Contains methods to accumulate and update nutrients of all meals in history.
  *
  * @author johannakrickow (ugtfp)
- * @version 22.06.2023
+ * @version 23.06.2023
  */
 public class Nutrients {
 
@@ -49,44 +49,16 @@ public class Nutrients {
         accumulatedNutrientsArray = new String[attributesStringArr.length][2];
     }
 
+    /**
+     * Overwrites the array with each accumulated attribute.
+     * Rounds all numbers.
+     */
     private void populateTotalAmountArr() {
         totalAmountArr = new double[] {totalKCal, totalProteins, totalCarbs, totalFat, relativeVeggieAmount, totalCosts};
 
         for (int i = 0; i < totalAmountArr.length; i++) {
             totalAmountArr[i] = Math.round(totalAmountArr[i] * 100) / 100;
         }
-    }
-
-    public void addNutrients(MensaMealWithDate meal) {
-        totalMealCounter += 1;
-        totalKCal += meal.getMeal().getKcal();
-        totalProteins += meal.getMeal().getProteins();
-        totalCarbs += meal.getMeal().getCarbs();
-        totalFat += meal.getMeal().getFat();
-        if (meal.getMeal().getType() == MensaMealType.VEGETARIAN || meal.getMeal().getType() == MensaMealType.VEGAN) {
-            totalVeggieAmount += 1;
-        }
-        updateRelativeVeggieAmount();
-
-        totalCosts += meal.getMeal().getPrice();
-        populateTotalAmountArr();
-        updateAccumulatedNutrientsArray();
-    }
-
-    public void removeNutrients(double kCal, double proteins, double carbs, double fat, String mealType, double price) {
-        totalMealCounter -= 1;
-        totalKCal -= kCal;
-        totalProteins -= proteins;
-        totalCarbs -= carbs;
-        totalFat -= fat;
-        if (mealType.equals("vegetarisch") || mealType.equals("vegan")) {
-            totalVeggieAmount -= 1;
-        }
-        updateRelativeVeggieAmount();
-
-        totalCosts -= price;
-        populateTotalAmountArr();
-        updateAccumulatedNutrientsArray();
     }
 
     private void updateRelativeVeggieAmount() {
@@ -103,7 +75,31 @@ public class Nutrients {
         }
     }
 
+    /**
+     * Adds nutrients of a meal to the accumulated nutrients.
+     * @param meal that is being added.
+     */
+    public void addNutrients(MensaMealWithDate meal) {
+        totalMealCounter += 1;
+        totalKCal += meal.getMeal().getKcal();
+        totalProteins += meal.getMeal().getProteins();
+        totalCarbs += meal.getMeal().getCarbs();
+        totalFat += meal.getMeal().getFat();
+        if (meal.getMeal().getType() == MensaMealType.VEGETARIAN || meal.getMeal().getType() == MensaMealType.VEGAN) {
+            totalVeggieAmount += 1;
+        }
+        updateRelativeVeggieAmount();
 
+        totalCosts += meal.getMeal().getPrice();
+        populateTotalAmountArr();
+        updateAccumulatedNutrientsArray();
+    }
+
+    /**
+     * Updates accumulated nutrients array with Strings from meals in cache.
+     * Strings are being converted to doubles to calculate with them.
+     * @param cachedMeals array with all meals from cache.
+     */
     public void updateNutrientsFromCache(Object[][] cachedMeals) {
         for (Object[] meal : cachedMeals) {
             totalMealCounter += 1;
@@ -122,6 +118,30 @@ public class Nutrients {
         }
     }
 
+    /**
+     * Reduces accumulated amount of each attribute by the meal's amount, that is being removed.
+     * @param kCal
+     * @param proteins
+     * @param carbs
+     * @param fat
+     * @param mealType
+     * @param price
+     */
+    public void removeNutrients(double kCal, double proteins, double carbs, double fat, String mealType, double price) {
+        totalMealCounter -= 1;
+        totalKCal -= kCal;
+        totalProteins -= proteins;
+        totalCarbs -= carbs;
+        totalFat -= fat;
+        if (mealType.equals("vegetarisch") || mealType.equals("vegan")) {
+            totalVeggieAmount -= 1;
+        }
+        updateRelativeVeggieAmount();
+
+        totalCosts -= price;
+        populateTotalAmountArr();
+        updateAccumulatedNutrientsArray();
+    }
 
     public Object[][] getAccumulatedNutrientsArray() {
         return accumulatedNutrientsArray.clone();

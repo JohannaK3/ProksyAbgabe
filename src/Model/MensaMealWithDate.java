@@ -10,18 +10,17 @@ import java.time.format.DateTimeFormatter;
  * Contains methods to get meal information in array form.
  *
  * @author johannakrickow (ugtfp)
- * @version 22.06.2023
+ * @version 23.06.2023
  */
 public class MensaMealWithDate {
 
-    private LocalDate date;
-    private MensaMeal meal;
+    private final LocalDate date;
+    private final MensaMeal meal;
     private boolean isVeggie;
 
     MensaMealWithDate(MensaMeal meal, LocalDate date) {
         this.date = date;
         this.meal = meal;
-
         checkMealType();
     }
 
@@ -30,12 +29,30 @@ public class MensaMealWithDate {
     }
 
     /**
-     * Retrieves the date of the meal in string format.
+     * Retrieves  and returns the date of the meal in string format.
      * @return date of the meal in the format "dd.MM.yyyy".
      */
     private String getDateOfMealInString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         return getDate().format(formatter);
+    }
+
+    /**
+     * Checks the type of the meal and sets the "isVeggie" flag accordingly.
+     */
+    private void checkMealType() {
+        if (meal.getType() == MensaMealType.VEGETARIAN || meal.getType() == MensaMealType.VEGAN) {
+            isVeggie = true;
+            return;
+        }
+        isVeggie = false;
+    }
+
+    private String getTypeString() {
+        if (isVeggie) {
+            return "vegetarisch";
+        }
+        return "nicht vegetarisch";
     }
 
     public MensaMeal getMeal() {
@@ -59,20 +76,4 @@ public class MensaMealWithDate {
                 String.valueOf(meal.getLine()), String.valueOf(meal.getKcal()), String.valueOf(meal.getProteins()),
                 String.valueOf(meal.getCarbs()), String.valueOf(meal.getFat()), getTypeString()};
     }
-
-    private void checkMealType() {
-        if (meal.getType() == MensaMealType.VEGETARIAN || meal.getType() == MensaMealType.VEGAN) {
-            isVeggie = true;
-            return;
-        }
-        isVeggie = false;
-    }
-
-    private String getTypeString() {
-        if (isVeggie) {
-            return "vegetarisch";
-        }
-        return "nicht vegetarisch";
-    }
-
 }

@@ -2,13 +2,12 @@ package Control;
 
 import View.MainView;
 
-import javax.swing.*;
-
 /**
- * Controller listens to user actions and changes model and view according to this
+ * Controller contains methods to create listeners/adapters.
+ * Passes view to new listener/adapter objects.
  *
  * @author johannakrickow (ugtfp)
- * @version 22.06.2023
+ * @version 23.06.2023
  */
 public class Controller {
 

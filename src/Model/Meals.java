@@ -9,14 +9,13 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Uses MensaMeal Class of Library to create meal instances for meals of specific day when program starts
+ * Uses MensaMeal class from library to create meal instances for meals of a specific day when program starts.
  *
  * @see MensaMeal
  *
  * @author johannakrickow (ugtfp)
- * @version 22.06.2023
+ * @version 23.06.2023
  */
-//start page, instance is created, when program starts
 public class Meals {
 
     private final KITMensaScraper mensa = new KITMensaScraper();
@@ -24,11 +23,14 @@ public class Meals {
 
 
     public Meals(LocalDate selectedDate) {
-
         this.currentMeals = this.getMeals(selectedDate);
     }
 
-    //method gets meals for any future day from library
+    /**
+     * Retrieves the list of meals for the specified selected date from the library.
+     * @param selectedDate for which the meals are fetched.
+     * @return list of meals with dates.
+     */
     private List<MensaMealWithDate> getMeals(LocalDate selectedDate) {
         List<MensaMeal> mensaMeals = mensa.fetchMeals(MensaLocation.ADENAUERRING, selectedDate);
         List<MensaMealWithDate> mensaMealsWithDates = new ArrayList<>();
@@ -48,6 +50,4 @@ public class Meals {
     public List<MensaMealWithDate> getCurrentMeals() {
         return Collections.unmodifiableList(currentMeals);
     }
-
-
 }

@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  * {@link ShowHistory#showHistoryButton}
  *
  * @author johannakrickow (ugtfp)
- * @version 22.06.2023
+ * @version 23.06.2023
  */
 public class ShowHistoryButtonActionListener implements ActionListener {
 

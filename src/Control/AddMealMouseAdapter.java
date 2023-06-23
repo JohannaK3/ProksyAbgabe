@@ -9,13 +9,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * MouseAdapter to add meal to history and add nutritions
+ * MouseAdapter to add meal to history and add nutritions of meal to accumulated nutrients.
  *
  * @author johannakrickow (ugtfp)
- * @version 22.06.2023
+ * @version 23.06.2023
  */
 public class AddMealMouseAdapter extends MouseAdapter {
     private final MainView view;
+    private final String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)",
+            "Kohlenhydrate (in g)", "Fett (in g)", "Vegetarisch?"};
+    private final String[] colArr = {"Attribut", "Kummulierter Wert"};
     private MensaMealWithDate selectedMeal;
 
     public AddMealMouseAdapter(MainView view) {
@@ -43,14 +46,11 @@ public class AddMealMouseAdapter extends MouseAdapter {
     }
 
     /**
-     * Adds new meal to history and history list, calls to update the table.
+     * Adds new meal to history table model.
      * @param rowIndex representing the row containing the MensaMealWithDate object to be added to history.
      */
     private void addMealToHistory(int rowIndex) {
-        String[] columnsArray = {"Name", "Datum", "Preis in €", "Linie", "KCal", "Proteine (in g)", "Kohlenhydrate (in g)",
-                "Fett (in g)", "Vegetarisch?"};
         Object[][] mealHistory = view.getMainDisplay().getMealHistoryView().updateHistoryTable(getMealFromTable(rowIndex));
-
 
         DefaultTableModel updatedTabelModel = new DefaultTableModel(
                 mealHistory, columnsArray) {
@@ -61,8 +61,6 @@ public class AddMealMouseAdapter extends MouseAdapter {
         };
 
         view.getMainDisplay().getMealHistoryView().getHistoryTable().setModel(updatedTabelModel);
-
-
     }
 
     private MensaMealWithDate getMealFromTable(int rowIndex) {
@@ -79,12 +77,10 @@ public class AddMealMouseAdapter extends MouseAdapter {
     }
 
     /**
-     * Updates nutrients table in the nutrient overview with the updated data.
+     * Updates nutrients table model in nutrient overview with the updated data.
      * @param nutritientOverview NutrientOverview object representing the view containing the nutrients table.
      */
     private void updateTable(NutritientOverview nutritientOverview) {
-        //TODO: colArr is same in MealTable, how can I use the same one?
-        String[] colArr = {"Attribut", "Kummulierter Wert"};
         DefaultTableModel updatedTabelModel = new DefaultTableModel(
                 nutritientOverview.getAccumulatedNutrientArray(), colArr) {
             @Override

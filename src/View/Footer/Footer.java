@@ -2,6 +2,12 @@ package View.Footer;
 
 import javax.swing.*;
 
+/**
+ * Footer section of the GUI.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 23.06.2023
+ */
 public class Footer {
 
     private final JPanel footerPanel;

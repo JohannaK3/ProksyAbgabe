@@ -1,6 +1,5 @@
 package Control;
 
-
 import Model.Meals;
 import View.MainView;
 import View.MealTable;
@@ -15,11 +14,12 @@ import java.time.LocalDate;
  * {@link SelectDate#selectedDateButton}
  *
  * @author johannakrickow (ugtfp)
- * @version 22.06.2023
+ * @version 23.06.2023
  */
 public class SelectedDayButtonActionListener implements ActionListener {
 
     private final MainView view;
+    private final String[] colArr = {"Name", "Preis in €", "Linie"};
 
     public SelectedDayButtonActionListener(MainView view) {
         this.view = view;
@@ -27,6 +27,9 @@ public class SelectedDayButtonActionListener implements ActionListener {
 
     /**
      * Is called when selectDayButton is pushed.
+     * Get's selected Date, shows it in the view's header.
+     * Updates table with meals for the selected date.
+     * JOptionPane is created an message is shown when unvalid date is selected.
      * @param e representing event that triggerd the action.
      */
     @Override
@@ -37,18 +40,18 @@ public class SelectedDayButtonActionListener implements ActionListener {
         LocalDate maxDate = view.getHeader().getSelectDate().getSpinnerEndDate();
         String date = view.getHeader().getSelectDate().getDateInStringFormat();
 
-        if (selectedDate.isEqual(currentdate) | selectedDate.isAfter(currentdate) && selectedDate.isBefore(maxDate)) {
-        //shows selected date above table
+        //TODO: fix this
+        //if (selectedDate.isEqual(currentdate) | selectedDate.isAfter(currentdate) && selectedDate.isBefore(maxDate)) {
+        if (selectedDate != currentdate) {
+            new DateOptionPane(view.getMainDisplay().getMealTable().getMealTableBackgroundPanel());
+
+        }
         view.getMainDisplay().getMealTable().getSelectedDateLabel().setText(date);
 
         MealTable mealTable = view.getMainDisplay().getMealTable();
         //shows meal table for selected date
         updateMeals(mealTable);
         updateTable(mealTable);
-        } else {
-            //should never be displayed since spinner is limited.
-            new DateOptionPane(view.getMainDisplay().getMealTable().getMealTableBackgroundPanel());
-        }
     }
 
     /**
@@ -63,14 +66,13 @@ public class SelectedDayButtonActionListener implements ActionListener {
     }
 
     /**
-     * Updates the table in the meal display with the updated data.
+     * Updates the table model in the meal display with the updated data.
      * Shows meal table on display panel.
      * @param mealTable MealTable object representing the table to update.
      */
     private void updateTable(MealTable mealTable) {
         view.getMainDisplay().getCardLayout().show(view.getMainDisplay().getMainDisplayPanel(), "1");
-        //TODO: colArr is same in MealTable, how can I use the same one?
-        String[] colArr = {"Name", "Preis in €", "Linie"};
+
         DefaultTableModel updatedTabelModel = new DefaultTableModel(
                 mealTable.getDataArray(), colArr) {
             @Override

@@ -8,7 +8,12 @@ import java.awt.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
+/**
+ * Represents a table that displays meals for a selected date.
+ *
+ * @author johannakrickow (ugtfp)
+ * @version 23.06.2023
+ */
 public class MealTable {
 
     private final Meals meals;
@@ -22,7 +27,6 @@ public class MealTable {
     private JPanel dateOverviewPanel;
     private JPanel footerPanel;
 
-    //TODO: create Table Model -> possibly Meals modeln in different class
     private JTable mealsJTable;
     private DefaultTableModel defaultTableModel;
 
@@ -42,7 +46,6 @@ public class MealTable {
         selectedDateLabel = new JLabel(currentLocalDate.format(formatter), SwingConstants.LEFT);
 
         addComponentsToPanel();
-
     }
 
     private void createMealTablePanel() {
@@ -71,6 +74,9 @@ public class MealTable {
         mealTableBackgroundPanel.add(scrollBarPane, BorderLayout.CENTER);
     }
 
+    /**
+     * Passes data to the table model and sets the table model.
+     */
     private void createTable() {
         String[] columnsArray = {"Name", "Preis in €", "Linie"};
         defaultTableModel = new DefaultTableModel(dataArray, columnsArray) {
@@ -82,6 +88,10 @@ public class MealTable {
         mealsJTable = new JTable(defaultTableModel);
     }
 
+    /**
+     * Gets the information of meals from a selected date.
+     * Saves them in a 2D array.
+     */
     public void updateDataArray() {
         dataArray = new String[meals.getCurrentMeals().size()][3];
 

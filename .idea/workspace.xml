@@ -4,14 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="-&gt; Angefangen JOptionPane in SelectDateButton zu nutzen&#10;-&gt; JavaDocs zuende machen">
-      <change afterPath="$PROJECT_DIR$/src/Control/DateOptionPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Control/ReadingFailedOptionPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Control/WritingFailedOptionPane.java" afterDir="false" />
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Exceptions behandelt.&#10;-&gt; JavaDocs zuende machen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/AddMealMouseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/AddMealMouseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/DateOptionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/DateOptionPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/ReadingFailedOptionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/ReadingFailedOptionPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/RemoveFromHistoryMouseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/RemoveFromHistoryMouseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/SelectedDayButtonActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/SelectedDayButtonActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/ShowHistoryButtonActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/ShowHistoryButtonActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/ShowNutrientsButtonActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/ShowNutrientsButtonActionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/WindowActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/WindowActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/WritingFailedOptionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/WritingFailedOptionPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Meals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Meals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Nutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Nutrients.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Footer/Footer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Footer/Footer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Header/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Header/SelectDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/SelectDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Header/ShowHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/ShowHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Header/ShowNutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/ShowNutrients.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MainDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MainDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687521883445</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Exceptions behandelt.&#10;-&gt; JavaDocs zuende machen">
+      <created>1687539921676</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1687539921676</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +375,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Vieles in View instanziiert" />
     <MESSAGE value="GridBagLayout begonnen" />
     <MESSAGE value="GridBagLayout ersetzt durch verschachteltes Border und GridLayout" />
     <MESSAGE value="ganz großes chaos" />
@@ -375,7 +399,8 @@
     <MESSAGE value="Cache funktioniert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen" />
     <MESSAGE value="Controller aufgesplittet.&#10;Design (final) verändert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen" />
     <MESSAGE value="-&gt; Angefangen JOptionPane in SelectDateButton zu nutzen&#10;-&gt; JavaDocs zuende machen" />
-    <option name="LAST_COMMIT_MESSAGE" value="-&gt; Angefangen JOptionPane in SelectDateButton zu nutzen&#10;-&gt; JavaDocs zuende machen" />
+    <MESSAGE value="Exceptions behandelt.&#10;-&gt; JavaDocs zuende machen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exceptions behandelt.&#10;-&gt; JavaDocs zuende machen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

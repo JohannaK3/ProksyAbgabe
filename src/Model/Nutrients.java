@@ -11,7 +11,6 @@ import edu.kit.aifb.atks.mensascraper.lib.MensaMealType;
  */
 public class Nutrients {
 
-
     private int totalMealCounter = 0;
     private double totalKCal = 0;
     private double totalProteins = 0;
@@ -20,7 +19,6 @@ public class Nutrients {
     private double totalVeggieAmount = 0;
     private double relativeVeggieAmount = 0;
     private double totalCosts = 0;
-    private static final String TOTAL_KCAL_STRING = "KCal";
     private String totalKCalString, totalProteinsString, totalCarbsString, totalFatString, totalCostsString,
             relativeVeggieAmountString;
 
@@ -59,14 +57,6 @@ public class Nutrients {
         }
     }
 
-    private String[] convertToString(double[] doubleArr) {
-        String[] stringArr = new String[doubleArr.length];
-        for (int i = 0; i < doubleArr.length; i++) {
-            stringArr[i] = String.valueOf(doubleArr[i]);
-        }
-        return stringArr;
-    }
-
     public void addNutrients(MensaMealWithDate meal) {
         totalMealCounter += 1;
         totalKCal += meal.getMeal().getKcal();
@@ -76,7 +66,7 @@ public class Nutrients {
         if (meal.getMeal().getType() == MensaMealType.VEGETARIAN || meal.getMeal().getType() == MensaMealType.VEGAN) {
             totalVeggieAmount += 1;
         }
-        relativeVeggieAmount = (totalVeggieAmount / totalMealCounter) * 100;
+        updateRelativeVeggieAmount();
 
         totalCosts += meal.getMeal().getPrice();
         populateTotalAmountArr();
@@ -92,11 +82,15 @@ public class Nutrients {
         if (mealType.equals("vegetarisch") || mealType.equals("vegan")) {
             totalVeggieAmount -= 1;
         }
-        relativeVeggieAmount = totalMealCounter == 0 ? 0 : (totalVeggieAmount / totalMealCounter) * 100;
+        updateRelativeVeggieAmount();
 
         totalCosts -= price;
         populateTotalAmountArr();
         updateAccumulatedNutrientsArray();
+    }
+
+    private void updateRelativeVeggieAmount() {
+        relativeVeggieAmount = totalMealCounter == 0 ? 0 : (totalVeggieAmount / totalMealCounter) * 100;
     }
 
     private void updateAccumulatedNutrientsArray() {
@@ -108,6 +102,26 @@ public class Nutrients {
 
         }
     }
+
+
+    public void updateNutrientsFromCache(Object[][] cachedMeals) {
+        for (Object[] meal : cachedMeals) {
+            totalMealCounter += 1;
+            totalCosts += Double.parseDouble((String) meal[2]);
+            totalKCal += Double.parseDouble((String) meal[4]);
+            totalProteins += Double.parseDouble((String) meal[5]);
+            totalCarbs += Double.parseDouble((String) meal[6]);
+            totalFat += Double.parseDouble((String) meal[7]);
+            if (meal[8].equals("vegetarisch")) {
+                totalVeggieAmount += 1;
+            }
+            updateRelativeVeggieAmount();
+
+            populateTotalAmountArr();
+            updateAccumulatedNutrientsArray();
+        }
+    }
+
 
     public Object[][] getAccumulatedNutrientsArray() {
         return accumulatedNutrientsArray.clone();

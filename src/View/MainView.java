@@ -14,10 +14,11 @@ public class MainView extends JFrame  {
     private MainDisplay mainDisplay;
     private Footer footer;
 
-    private final Container contentPainContainer;
+    //private final Container contentPainContainer;
 
     //TODO: handle fonts
 
+    private JFrame application;
     private JPanel backgroundPanel;
     private JPanel backgroundBorderPanel;
 
@@ -26,7 +27,8 @@ public class MainView extends JFrame  {
 
 
     public MainView() {
-        contentPainContainer = getContentPane();
+        application = new JFrame();
+        application.getContentPane();
 
         createMainViewPanel();
         generalSettings();
@@ -39,7 +41,8 @@ public class MainView extends JFrame  {
         backgroundBorderPanel.add(mainDisplay.getMainDisplayPanel(), BorderLayout.CENTER);
         backgroundBorderPanel.add(footer.getFooterPanel(), BorderLayout.SOUTH);
 
-        pack();
+        application.pack();
+        application.setVisible(true);
     }
 
     private void  createMainViewPanel() {
@@ -47,7 +50,7 @@ public class MainView extends JFrame  {
         backgroundBorderPanel = new JPanel(new BorderLayout(50, 20));
         backgroundPanel.setBorder(BorderFactory.createEmptyBorder(20, 20 , 20 ,20));
 
-        contentPainContainer.add(backgroundPanel);
+        application.add(backgroundPanel);
         backgroundPanel.add(backgroundBorderPanel, BorderLayout.CENTER);
     }
 
@@ -77,6 +80,7 @@ public class MainView extends JFrame  {
                 controller.createMealMouseAdapter());
         this.mainDisplay.getMealHistoryView().getHistoryTable().addMouseListener(
                 controller.createHistoryMouseAdapter());
+        application.addWindowListener(controller.createWindowActionListener());
     }
 
     public Header getHeader() {

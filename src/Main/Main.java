@@ -19,9 +19,6 @@ public class Main {
 
         view.setController(controller);
         controller.setView(view);
-
-        view.setVisible(true);
-
     }
 
 }

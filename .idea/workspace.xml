@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV">
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Alles funktioniert!!!!&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV">
+      <change afterPath="$PROJECT_DIR$/cache/cache.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/History.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Meals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Meals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MensaMealWithDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Nutrients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Nutrients.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687444044452</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Alles funktioniert!!!!&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV">
+      <created>1687455756034</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687455756034</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +329,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test" />
     <MESSAGE value="Grundstruktur" />
     <MESSAGE value="Bei Datumänderung wird immer neue Instanz von Meals erstellt. MensaMealWithDate Klasse. Controller Konstruktor. Klassenstruktur von View." />
     <MESSAGE value="Irgendwas in View" />
@@ -348,7 +353,8 @@
     <MESSAGE value="Stelle wo Code funktioniert" />
     <MESSAGE value="Stelle wo Code funktioniert 2" />
     <MESSAGE value="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
+    <MESSAGE value="Alles funktioniert!!!!&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alles funktioniert!!!!&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -359,12 +365,12 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
-          <line>244</line>
+          <line>255</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Control/Controller.java</url>
-          <line>246</line>
+          <line>257</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>

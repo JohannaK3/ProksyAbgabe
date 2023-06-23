@@ -46,7 +46,8 @@ public class SelectedDayButtonActionListener implements ActionListener {
         updateMeals(mealTable);
         updateTable(mealTable);
         } else {
-           //TODO: throw something (JOptionPane)
+            //should never be displayed since spinner is limited.
+            new DateOptionPane(view.getMainDisplay().getMealTable().getMealTableBackgroundPanel());
         }
     }
 

@@ -1,22 +1,8 @@
 package Control;
 
-import Model.MensaMealWithDate;
-import Model.Nutrients;
 import View.MainView;
-import View.NutritientOverview;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
+import javax.swing.*;
 
 /**
  * Controller listens to user actions and changes model and view according to this

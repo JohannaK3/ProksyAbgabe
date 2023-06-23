@@ -54,6 +54,7 @@ public class WindowActionListener extends WindowAdapter {
 
         } catch (IOException ioException) {
             System.err.println(ioException);
+            new WritingFailedOptionPane(view.getMainDisplay().getMainDisplayPanel(), ioException);
         }
     }
 
@@ -75,8 +76,9 @@ public class WindowActionListener extends WindowAdapter {
 
             return mealList.stream().map(meal -> meal.toArray(new Object[0])).toArray(Object[][]::new);
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+            new ReadingFailedOptionPane(view.getMainDisplay().getMainDisplayPanel(), ioException);
             return new Object[0][0];
         }
     }

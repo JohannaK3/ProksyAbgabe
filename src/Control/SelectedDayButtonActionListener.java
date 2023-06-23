@@ -31,14 +31,23 @@ public class SelectedDayButtonActionListener implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        //shows selected date above table
+
+        LocalDate currentdate = view.getHeader().getSelectDate().getCurrentLocalDate();
+        LocalDate selectedDate = view.getHeader().getSelectDate().getSelectedDateFromSpinner();
+        LocalDate maxDate = view.getHeader().getSelectDate().getSpinnerEndDate();
         String date = view.getHeader().getSelectDate().getDateInStringFormat();
+
+        if (selectedDate.isEqual(currentdate) | selectedDate.isAfter(currentdate) && selectedDate.isBefore(maxDate)) {
+        //shows selected date above table
         view.getMainDisplay().getMealTable().getSelectedDateLabel().setText(date);
 
         MealTable mealTable = view.getMainDisplay().getMealTable();
         //shows meal table for selected date
         updateMeals(mealTable);
         updateTable(mealTable);
+        } else {
+           //TODO: throw something (JOptionPane)
+        }
     }
 
     /**

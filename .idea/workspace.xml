@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Cache funktioniert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen">
-      <change afterPath="$PROJECT_DIR$/src/Control/AddMealMouseAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Control/RemoveFromHistoryMouseAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Control/SelectedDayButtonActionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Control/ShowHistoryButtonActionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Control/ShowNutrientsButtonActionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Control/WindowActionListener.java" afterDir="false" />
+    <list default="true" id="db7570fa-2dde-4e0f-8892-4dbacfd87997" name="Changes" comment="Controller aufgesplittet.&#10;Design (final) verändert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/cache.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cache.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Footer/Footer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Footer/Footer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealHistoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/MealTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MainDisplay/NutritientOverview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Control/SelectedDayButtonActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Control/SelectedDayButtonActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Header/SelectDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Header/SelectDate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687514706954</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Controller aufgesplittet.&#10;Design (final) verändert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen">
+      <created>1687517980235</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1687517980235</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +339,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Bei Datumänderung wird immer neue Instanz von Meals erstellt. MensaMealWithDate Klasse. Controller Konstruktor. Klassenstruktur von View." />
     <MESSAGE value="Irgendwas in View" />
     <MESSAGE value="Vieles in View instanziiert" />
     <MESSAGE value="GridBagLayout begonnen" />
@@ -368,7 +363,8 @@
     <MESSAGE value="Alles funktioniert!!!!&#10;-&gt; History nach Datum sortieren&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
     <MESSAGE value="Alles funktioniert!!!!&#10;-&gt; JavaDocs zuende machen&#10;-&gt; CSV" />
     <MESSAGE value="Cache funktioniert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cache funktioniert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen" />
+    <MESSAGE value="Controller aufgesplittet.&#10;Design (final) verändert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controller aufgesplittet.&#10;Design (final) verändert.&#10;-&gt; Exceptions werfen&#10;-&gt; JavaDocs zuende machen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

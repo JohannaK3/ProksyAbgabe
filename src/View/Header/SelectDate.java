@@ -10,6 +10,7 @@ import java.util.Calendar;
 
 public class SelectDate {
 
+
     private final LocalDate currentLocalDate = LocalDate.now();
     private final LocalDate spinnerEndDate = currentLocalDate.plusDays(7);
 
@@ -25,7 +26,7 @@ public class SelectDate {
 
 
 
-    
+
     public SelectDate() {
         dateSpinnerPanel = new JPanel(new GridLayout(2, 1));
 
@@ -70,5 +71,13 @@ public class SelectDate {
         LocalDate localDate = getSelectedDateFromSpinner();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         return localDate.format(formatter);
+    }
+
+    public LocalDate getCurrentLocalDate() {
+        return currentLocalDate;
+    }
+
+    public LocalDate getSpinnerEndDate() {
+        return spinnerEndDate;
     }
 }

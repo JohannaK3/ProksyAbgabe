@@ -7,6 +7,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * ButtonListener for button to select date in SelectDate
@@ -35,23 +38,34 @@ public class SelectedDayButtonActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        String date = view.getHeader().getSelectDate().getDateInStringFormat();
+
+        if (dateIsValid()) {
+            view.getMainDisplay().getMealTable().getSelectedDateLabel().setText(date);
+            MealTable mealTable = view.getMainDisplay().getMealTable();
+            //shows meal table for selected date
+            updateMeals(mealTable);
+            updateTable(mealTable);
+        } else {
+            new DateOptionPane(view.getMainDisplay().getMealTable().getMealTableBackgroundPanel());
+        }
+    }
+
+    /**
+     * Checks if selected date is valid and if it is on a weekend.
+     * @return true if its valid and is not a weekend.
+     */
+    private boolean dateIsValid() {
         LocalDate currentdate = view.getHeader().getSelectDate().getCurrentLocalDate();
         LocalDate selectedDate = view.getHeader().getSelectDate().getSelectedDateFromSpinner();
         LocalDate maxDate = view.getHeader().getSelectDate().getSpinnerEndDate();
-        String date = view.getHeader().getSelectDate().getDateInStringFormat();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(Date.from(selectedDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
 
-        //TODO: fix this
-        //if (selectedDate.isEqual(currentdate) | selectedDate.isAfter(currentdate) && selectedDate.isBefore(maxDate)) {
-        if (selectedDate != currentdate) {
-            new DateOptionPane(view.getMainDisplay().getMealTable().getMealTableBackgroundPanel());
-
-        }
-        view.getMainDisplay().getMealTable().getSelectedDateLabel().setText(date);
-
-        MealTable mealTable = view.getMainDisplay().getMealTable();
-        //shows meal table for selected date
-        updateMeals(mealTable);
-        updateTable(mealTable);
+        boolean validDate = selectedDate.isEqual(currentdate) | selectedDate.isAfter(currentdate) && selectedDate.isBefore(maxDate);
+        boolean isWeekend = calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY;
+        //returnt true
+        return validDate && !isWeekend;
     }
 
     /**
